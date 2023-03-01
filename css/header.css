@@ -1,0 +1,182 @@
+@font-face {
+    font-family: "Poppins";
+    src: url(fonts/Poppins-Medium.ttf);
+  }
+  
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: "Poppins";
+    background-color: #f2f2f2;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  /* HEADER */
+  
+  header {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 8px solid #efd4c4;
+  }
+  
+  .nav-container {
+    flex-grow: 2;
+    padding: 0 2%;
+  }
+  
+  .nav-items {
+    padding: 5px;
+    columns: #1c2120;
+    cursor: pointer;
+  }
+  
+  a.nav-items:hover {
+    background-color: rgb(237, 237, 237);
+    color: #1c2120;
+    border-radius: 10px;
+  }
+  
+  .logo {
+    padding: 1.5em 0 0.8em 3em;
+  }
+  
+  .logo img {
+    width: 150px;
+  }
+  
+  .search-wrapper {
+    margin-right: 10px;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.4s;
+    border-radius: 25px;
+    border: 1px solid;
+  }
+  
+  .expand {
+    width: 240px !important;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .search-input {
+    border: 0;
+    overflow: hidden;
+    transition: 0.4s;
+    width: 0px;
+    outline: none;
+    margin-left: 15px;
+  }
+  
+  .search-wrapper form input::placeholder {
+    font-size: 14px;
+  }
+  
+  .search-icon {
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    margin-left: -18px;
+  }
+  
+  .search-icon img {
+    width: 17px;
+    max-height: 100%;
+  }
+  
+  .myaccount-wrapper {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .myaccount-modal {
+      display: none;
+      height: 250px;
+      width: 200px;
+      position: absolute;
+      border: 1px solid;
+      z-index: 2;
+      margin-left: -123px;
+      background-color: wheat;
+  }
+  
+  .myaccount-modal::before {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 27%;
+    top: -5px;
+    border-bottom: 5px solid #000;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+  }
+  
+  .products-modal {
+    display: none;
+    height: 350px;
+    width: 750px;
+    position: absolute;
+    border: 1px solid;
+    z-index: 2;
+    background-color: wheat;
+  }
+  
+  .products-modal::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 5%;
+  top: -5px;
+  border-bottom: 5px solid #000;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  }
+  
+  .myaccount-wrapper:hover + .myaccount-modal, 
+  .myaccount-modal:hover, .products:hover + .products-modal,
+  .products-modal:hover {
+    display:block;
+  }
+  
+  .cart-wrapper {
+    padding-right: 3em;
+  }
+  
+  .cart, .myaccount {
+    background-color: transparent;
+    border: 0;
+    margin: auto;
+    cursor: pointer;
+  }
+  
+  .cart-wrapper .cart img, .myaccount img {
+    width: 25px;
+  }
+  

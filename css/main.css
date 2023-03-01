@@ -1,0 +1,105 @@
+/* MAIN */
+
+.content-wrapper {
+  width: 100%;
+}
+
+.banner-container {
+  width: 92vw;
+  text-align: center;
+  margin: auto;
+}
+
+.deals-container {
+  padding: 0 5vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.deals-container img {
+  height: 300px;
+  border-bottom: 5px solid #1c2120;
+  border-radius: 5px;
+}
+
+.deals-item,
+.cat-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.deals-item span {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.deals-item a {
+  color: #1c2120;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.categories-container {
+  text-align: center;
+  margin: 10vh 0;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cat-item img {
+  height: 200px;
+  border-radius: 100px;
+}
+
+.cat-item span {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #1c2120;
+}
+
+@media only screen and (max-width: 990px) {
+  header {
+    justify-content: center;
+    height: 25vh;
+    min-height: 150px;
+    padding: 10px;
+  }
+  nav {
+    flex-basis: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer-wrapper {
+    font-size: 14px;
+  }
+  .search-wrapper {
+    height: 30px;
+  }
+  .search-wrapper form input::placeholder {
+    font-size: 12px;
+  }
+  .logo {
+    padding: 0;
+  }
+  .logo img {
+    width: 200px;
+  }
+  .nav-items {
+    font-size: 10px;
+  }
+  .cart-wrapper {
+    padding: 0;
+  }
+  .cart-wrapper .cart img {
+    width: 25px;
+  }
+}
