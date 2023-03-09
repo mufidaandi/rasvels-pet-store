@@ -1,0 +1,103 @@
+<!-- add semantic tags -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RASVEL's Pet Store</title>
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/registration.css">
+</head>
+<body>
+
+    <!-- header contains logo, navigation, popups on hover -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" />
+        </div>
+        <nav class="nav-container">
+            <a class="nav-items products">Products</a>
+            <div id="products-modal" class="products-modal">
+            <div class="pet-categories">
+    
+            </div>
+            <div class="pet-subcategories">
+    
+            </div>
+            </div>
+            <a class="nav-items">About Us</a>
+            <a class="nav-items">Contact Us</a>
+        </nav>
+        <div id="search-wrapper" class="search-wrapper">
+            <form class="search-bar">
+            <input type="text" 
+                onfocus="this.placeholder = 'Looking for something?'" 
+                onblur="this.placeholder = ''" 
+                id="search-input" 
+                class="search-input" 
+                placeholder="Looking for something?" />
+            <span id="search" class="search-icon"><img src="assets/search.png" /></span for="search">
+            </form>
+        </div>
+        <div>
+            <div id="myaccount-wrapper" class="myaccount-wrapper">
+            <button class="myaccount">
+                <a href="#"><img src="assets/user.png" /></a>
+            </button>
+            </div>
+            <div id="myaccount-modal" class="myaccount-modal">
+            <div>
+    
+            </div>
+            </div>
+        </div>
+        
+        <div class="cart-wrapper">
+            <button class="cart">
+            <a href="#"><img src="assets/cart 2.png" /></a>
+            </button>
+        </div>
+        </header>
+
+
+    <main>
+
+        <form action="">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName">
+
+            <label for="email">Email Address</label>
+            <input type="email" name="" id="email">
+
+            <label for="confirm-email">Confirm Email Address</label>
+            <input type="email" name="" id="confirm-email">
+
+            <label for="password">Password</label>
+            <input type="password" name="" id="password">
+
+            <label for="confirm-password">Confirm Your Password</label>
+            <input type="password" name="" id="confirm-password">
+
+            <button>Create Account</button>
+        </form>
+
+    </main>
+
+    <!-- footer contains page info and social media links -->
+    <footer class="footer-wrapper">
+      <span>&copy; 2023, RASVEL's | Lambton College in Toronto - Winter 2023.</span>
+      <div class="social-media">
+        <img src="assets/icons8-facebook-30.png" />
+        <img src="assets/icons8-instagram-30.png" />
+      </div>
+    </footer>
+
+</body>
+</html>
