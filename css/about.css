@@ -1,0 +1,58 @@
+main h2,
+h3 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: #8a4421;
+}
+
+h2 {
+    margin-top: 45px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 200px;
+}
+
+.about-us-content {
+    text-align: justify;
+    display: inline-block;
+    color: #917A60;
+}
+
+hr {
+    color: #8a4421;
+    border-color: #8a4421;
+    border-width: 1px;
+    width: 50%;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px;
+}
+
+.column img {
+    width: 110%;
+    border-radius: 15%;
+    padding: 0 5vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about-our-company {
+    padding: 0 5vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+* {
+    box-sizing: border-box;
+}
