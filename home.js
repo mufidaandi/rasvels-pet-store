@@ -168,7 +168,10 @@ function login() {
 }
 
 window.onload = function () {
-  showSlides(slideIndex);
+  showSlides();
+  setInterval(function () {
+    plusSlides(1);
+  }, 2000);  
 
   $("cat-image").onmouseover = enlargeCatAnimation;
   $("cat-image").onmouseleave = reduceCatAnimation;
