@@ -145,14 +145,6 @@ function cartIconOnLeave() {
   $("cart-icon").style.filter = "brightness(1)";
 }
 
-function loginBtnOnHover() {
-  $("login-btn").style.filter = "brightness(1.2)";
-}
-
-function loginBtnOnLeave() {
-  $("login-btn").style.filter = "brightness(1)";
-}
-
 function login() {
   var storedName = localStorage.getItem("name");
   var storedPw = localStorage.getItem("pw");
@@ -168,7 +160,10 @@ function login() {
 }
 
 window.onload = function () {
-  showSlides(slideIndex);
+  showSlides();
+  setInterval(function () {
+    plusSlides(1);
+  }, 2000);  
 
   $("cat-image").onmouseover = enlargeCatAnimation;
   $("cat-image").onmouseleave = reduceCatAnimation;
@@ -186,9 +181,6 @@ window.onload = function () {
 
   $("cart-wrapper").onmouseover = cartIconOnHover;
   $("cart-wrapper").onmouseleave = cartIconOnLeave;
-
-  $("login-btn").onmouseover = loginBtnOnHover;
-  $("login-btn").onmouseleave = loginBtnOnLeave;
 
   $("cat").onmouseover = setCatActiveCategory;
   $("dog").onmouseover = setDogActiveCategory;
