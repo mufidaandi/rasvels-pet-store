@@ -46,10 +46,6 @@ main {
     height: 100px;
 }
 
-.content-wrapper {
-    background-color: #F6F3F0;
-}
-
 .column {
     float: left;
     width: 33%;

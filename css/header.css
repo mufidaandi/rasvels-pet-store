@@ -19,6 +19,14 @@
   a {
     text-decoration: none;
   }
+
+  button {
+    transition: 0.3s;
+  }
+
+  button:hover {
+    filter: brightness(1.2);
+  }
   
   /* HEADER */
   
