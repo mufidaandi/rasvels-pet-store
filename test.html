@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test page</title>
+    <script src="js/users.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            checkLogin();
+        });
+        
+        function checkLogin(){
+            var storedUser = userGetCurrentLoginUser();
+            if(storedUser){
+                var userObj = JSON.parse(storedUser);
+                $("#user_name").text('Welcome, '+ userObj.name);
+                $("#welcome").show();
+                $("#loginForm").hide();
+            } else {
+                $("#welcome").hide();
+                $("#loginForm").show();
+            }
+        }
+
+        function login(){
+            var usr = $('#username').val();
+            var pwd = $('#password').val();
+            var user = userLogin(usr, pwd);
+            if(user != null){
+                console.log(user);
+                $("#user_name").text('Welcome, '+ user.name);
+                $("#welcome").show();
+                $("#loginForm").hide();
+                $('#username').val('');
+                $('#password').val('');
+                $("#loginError").val('');
+            } else{
+                $("#loginError").text('Invalid user or password');
+            }
+        }
+        function logout(){
+            userLogout();
+            checkLogin();
+        }
+    </script>
+  </head>
+  <body id="body">
+    <div id="loginForm"> 
+        <div>
+            User name <input id="username" type="text">
+            Password <input id="password" type="password">
+            <span id="loginError"></span>
+        </div>
+        <button type="submit" onclick="login()" >Login</button>
+    </div>
+    <div id="welcome">
+        <span id="user_name"></span>
+        <a href="#" onclick="logout()">Log out</a>
+    </div>
+  </body>
+</html>
