@@ -341,15 +341,3 @@ async function getProductById(id) {
     var products = await loadDetail();
     return products.find(product => product.id === id);
 }
-
-// Get products by category
-async function getProductsByCategory(category) {
-    var products = await loadDetail();
-    return products.filter(product => product.category === category);
-}
-
-// Get products by category and subcategory
-async function getProductsByCategories(category, subcategory) {
-    var products = await loadDetail();
-    return products.filter(product => product.category === category && product.subcategory === subcategory);
-}
