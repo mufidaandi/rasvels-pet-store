@@ -14,15 +14,22 @@ var getUrlParameter = function getUrlParameter(sParam) {
     return false;
 };
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+}
 
 var productId = getUrlParameter('productId');
 getProductById(productId).then(function(product){
     console.log(product);
+    document.title = product.name + " - Rasvels Pet Store";
     jQuery('#product-name').text(product.name)
     jQuery('#product-description').html(product.description);
     jQuery('#product-price').text('$'+ product.price);
     jQuery('#product-quantity').text(product.quantity);
-    jQuery('#product-short-desc').text(product.name);
+    var productShortDesc = product.description.replace('<p>','').replace('</p>','').replace('<div>','').replace('</div>','').substring(0,150) + "...";
+    jQuery('#product-short-desc').text(productShortDesc);
     var strHover = '';
     var strThumb = '';
     product.images.forEach(element => {
@@ -31,6 +38,19 @@ getProductById(productId).then(function(product){
     });
     jQuery('#product-images-hover').html(strHover);
     jQuery('#product-images-thumb').html(strThumb);
+
+    var strRating = '';
+    for (let i = 0; i < product.rating; i++) {
+        strRating += '<i class="ecicon eci-star fill"></i>'
+    }
+    for (let i = 0; i < 5 - product.rating; i++) {
+        strRating += '<i class="ecicon eci-star-o"></i>'
+    }
+    jQuery('#product-rating').html(strRating);
+
+    var visitor = getRandomInt(20,50);
+    jQuery('#product-visitor').text(visitor);
+    
 
     /*----------------------------- single product Slider  ------------------------------ */
     jQuery('.single-product-cover').slick({
