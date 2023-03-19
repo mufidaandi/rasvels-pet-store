@@ -18,6 +18,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 var productId = getUrlParameter('productId');
 getProductById(productId).then(function(product){
     console.log(product);
+    document.title = product.name + " - Rasvels Pet Store";
     jQuery('#product-name').text(product.name)
     jQuery('#product-description').html(product.description);
     jQuery('#product-price').text('$'+ product.price);
@@ -31,6 +32,15 @@ getProductById(productId).then(function(product){
     });
     jQuery('#product-images-hover').html(strHover);
     jQuery('#product-images-thumb').html(strThumb);
+
+    var strRating = '';
+    for (let i = 0; i < product.rating; i++) {
+        strRating += '<i class="ecicon eci-star fill"></i>'
+    }
+    for (let i = 0; i < 5 - product.rating; i++) {
+        strRating += '<i class="ecicon eci-star-o"></i>'
+    }
+    jQuery('#product-rating').html(strRating);
 
     /*----------------------------- single product Slider  ------------------------------ */
     jQuery('.single-product-cover').slick({
