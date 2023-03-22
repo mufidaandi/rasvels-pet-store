@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shopping Cart</title>
+	<link rel="stylesheet" type="text/css" href="shoppingcartstyle.css">
+    <!-- <title>Welcome to rasvel's!</title> -->
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- <script src="home.js"></script> -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body id="body">
+    <!-- header contains logo, navigation, popups on hover -->
+    <header>
+      <div class="logo">
+        <a href="./index.html"><img src="images/logo.png" /></a>
+      </div>
+      <nav class="nav-container">
+        <a id="products" class="nav-items products">Products</a>
+        <div id="products-modal" class="products-modal">
+          <div class="pet-categories">
+            <div id="cat" class="categ-name active-sub">
+              Cat
+            </div>
+            <div id="dog" class="categ-name">
+              Dog
+            </div>
+            <div id="bird" class="categ-name">
+              Bird
+            </div>
+          </div>
+          <div class="pet-subcategories">
+            <div class="sub-container">
+              <div class="sub">
+                <div class="sub-text">
+                  <span>Food</span>
+                  <div class="sub-divider"></div>
+                  <span class="sub-sub-text">Dry Food</span><br>
+                  <span class="sub-sub-text">Wet Food</span><br>
+                  <span class="sub-sub-text">...and more!</span>
+                </div>
+                <img id="food" src="images/catfood.png" alt="food">
+              </div>
+              <div class="sub">
+                <div class="sub-text">
+                  <span>Treats</span>
+                  <div class="sub-divider"></div>
+                  <span class="sub-sub-text">Crunchy Treats</span><br>
+                  <span class="sub-sub-text">Soft & Chewy Treats</span><br>
+                  <span class="sub-sub-text">...and more!</span>
+                </div>
+                <img id="treat" src="images/cattreat.png" alt="treat">
+              </div>
+              <div class="sub">
+                <div class="sub-text">
+                  <span>Supplies</span>
+                  <div class="sub-divider"></div>
+                  <span class="sub-sub-text">Toys</span><br>
+                  <span class="sub-sub-text">Accessories</span><br>
+                  <span class="sub-sub-text">...and more!</span>
+                </div>
+                <img id="supplies" src="images/catsupplies.png" alt="supplies">
+              </div>
+            </div>
+          </div>
+          <div class="category-image">
+            <img id="category-image" src="images/catto.png" alt="pet-image">
+          </div>
+        </div>
+        <a class="nav-items" href="./about.html">About Us</a>
+        <a class="nav-items" href="./contact.html">Contact Us</a>
+      </nav>
+      <div id="search-wrapper" class="search-wrapper">
+        <form class="search-bar">
+          <input type="text" 
+            onfocus="this.placeholder = 'Looking for something?'" 
+            onblur="this.placeholder = ''" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="Looking for something?" />
+          <span id="search" class="search-icon"><img src="assets/search copy.png" /></span for="search">
+        </form>
+      </div>
+      <div class="account-wrapper">
+        <div id="myaccount-wrapper" class="myaccount-wrapper">
+          <button id="myaccount" class="myaccount">
+            <a href="#"><img id="user-icon" src="assets/user copy.png" /></a>
+          </button>
+        </div>
+        <div id="myaccount-modal" class="myaccount-modal">
+          <div class="account-signin">
+            <h5>Sign In</h5>
+            <div class="form-container">
+              <label for="uname">Username:</label>
+              <input id="uname" type="text" name="uname"/>
+
+              <label for="pword">Password:</label>
+              <input id="pword" type="password" name="pword"/>
+              <a href="#">
+                <label for="forgot-pword" class="forgot-pword">
+                  Forgot Password?
+                </label>
+              </a>
+              <div class="btn-container">
+                <button id="login-btn" type="submit" onclick="login()">Login</button>
+              </div>
+              
+              <a href="#">
+                <label for="register" class="register">
+                  Create Account
+                </label>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="cart-wrapper" class="cart-wrapper">
+        <button class="cart">
+          <a href="#"><img id="cart-icon" src="assets/cart 2 copy.png" /></a>
+        </button>
+      </div>
+    </header>
+    <!-- page content starts here -->
+    <main id="content-wrapper" class="content-wrapper">
+      <main>
+        <h2>Your Cart</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Product 1</td>
+              <td>$10</td>
+              <td><input type="number" value="1"></td>
+              <td>$10</td>
+            </tr>
+            <tr>
+              <td>Product 2</td>
+              <td>$20</td>
+              <td><input type="number" value="1"></td>
+              <td>$20</td>
+            </tr>
+            <tr>
+              <td>Product 3</td>
+              <td>$30</td>
+              <td><input type="number" value="1"></td>
+              <td>$30</td>
+            </tr>
+          </tbody>
+        </table>
+        <button id="update-cart">Update Cart</button>
+      </main>
+    
+    </main>
+    <!-- footer contains page info and social media links -->
+    <footer class="footer-wrapper">
+      <span>&copy; 2023, RASVEL's | Lambton College in Toronto - Winter 2023.</span>
+      <div class="social-media">
+        <a href="https://www.facebook.com/rasvels.pet.store" target=”_blank”><img src="assets/icons8-facebook-30.png" /></a>
+        <a href="https://www.instagram.com/rasvel_petstore/" target=”_blank”><img src="assets/icons8-instagram-30.png" /></a>
+      </div>
+    </footer>
+  </body>
+</html>
