@@ -3,6 +3,7 @@
   <head>
     <title>Welcome to rasvel's!</title>
     <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/registration.css">
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/main.css" />
@@ -124,27 +125,59 @@
     </header>
     <!-- page content starts here -->
     <main id="content-wrapper" class="content-wrapper">
+      <div class="form-container">
         <form action="">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName">
+          <div class="row">
+            <div class="column">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName">
+            </div>
+          </div>
 
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName">
+          <div class="row">
+            <div class="column">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName">
+            </div>
+          </div>
 
-            <label for="email">Email Address</label>
-            <input type="email" name="" id="email">
+          <div class="row">
+            <div class="column">
+              <label for="email">Email Address</label>
+              <input type="email" name="" id="email">
+            </div>
+          </div>
 
-            <label for="confirm-email">Confirm Email Address</label>
-            <input type="email" name="" id="confirm-email">
+          <div class="row">
+            <div class="column">
+              <label for="confirm-email">Confirm Email Address</label>
+              <input type="email" name="" id="confirm-email">
+            </div>
+          </div>
 
-            <label for="password">Password</label>
-            <input type="password" name="" id="password">
+          <div class="row">
+            <div class="column">
+              <label for="password">Password</label>
+              <input type="password" name="" id="password">
+            </div>
+          </div>
+           
+          <div class="row">
+            <div class="column">
+              <label for="confirm-password">Confirm Your Password</label>
+              <input type="password" name="" id="confirm-password">
+            </div>
+          </div>
 
-            <label for="confirm-password">Confirm Your Password</label>
-            <input type="password" name="" id="confirm-password">
-
-            <button>Create Account</button>
+          <div class="row">
+            <div class="right">
+              <div class="submit-btn-container">
+                <button id="submit-btn">Create Account</button>
+              </div>
+            </div>
+          </div>
         </form>
+      </div>
     </main>
     <!-- footer contains page info and social media links -->
     <footer class="footer-wrapper">
