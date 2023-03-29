@@ -19,9 +19,15 @@ $(document).ready(function() {
   var urlParameter = getUrlParameter('category').split("_");
   var productCategory = urlParameter[0];
   var productSubCategory = urlParameter[1];
-
+  var product;
+  
   for (let i = 0; i < products.length; i++) {
-    const product = products.filter(value => value.category === productCategory && value.subcategory === productSubCategory)[i];
+    if (productSubCategory) {
+      product = products.filter(value => value.category === productCategory && value.subcategory === productSubCategory)[i];
+    } else {      
+      product = products.filter(value => value.category === productCategory)[i];
+    }
+    
 
     // Create a div for the product card
     const productCard = $('<div class="product-card"></div>');

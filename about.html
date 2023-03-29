@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/about.css" />
-    <script src="index.js"></script>
+    <script src="js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="js/nav.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -18,7 +19,7 @@
         <a href="./index.html"><img src="images/logo.png" /></a>
       </div>
       <nav class="nav-container">
-        <a id="products" class="nav-items products">Products</a>
+        <a href="./product-list.html" id="products" class="nav-items products">Products</a>
         <div id="products-modal" class="products-modal">
           <div class="pet-categories">
             <div id="cat" class="categ-name active-sub">
@@ -119,31 +120,67 @@
       
       <div id="cart-wrapper" class="cart-wrapper">
         <button class="cart">
-          <a href="#"><img id="cart-icon" src="assets/cart 2 copy.png" /></a>
+          <a href="./shoppingcart.html"><img id="cart-icon" src="assets/cart 2 copy.png" /></a>
         </button>
       </div>
     </header>
     <!-- page content starts here -->
     <main id="content-wrapper" class="content-wrapper">
-      <div>
-        <h2>About Us</h2>
+      <div class="about-us-banner">
+        <img src="images/about-2.png" alt="about-us">
       </div>
       <div class="row">
         <div class="column">
           <img src="images/about-rasvels.png"/>
         </div>
-        <div class="column">
+        <div class="column content">
           <h3>Our Company</h3>
           <hr>
+          <br>
+          <br>
           <p class="about-us-content">
-            &nbsp;&nbsp;&nbsp;&nbsp;At Rasvel’s Pet Store we understand that your pet is a part of the family, because we’re devoted pet lovers too. 
-            Our store was founded with the goal of creating a one-stop-shop for all your pet needs, where you can find everything from premium quality pet food and treats to the latest pet accessories and toys.
-            <br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;At our store, we believe that pets are an important part of the family, and we strive to create a welcoming and inclusive environment where pet owners can find the resources and support 
-            they need to give their pets the best possible life. Our knowledgeable and friendly staff are always available to answer your questions and provide expert advice on everything from pet nutrition to training tips.
-            We are committed to providing high-quality products that are both safe and effective for your pets, and we carefully select all of our suppliers to ensure that our products meet the highest standards of quality and ethical sourcing.
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            At RASVEL's Pet Store, we're passionate about pets and we know that they're more than just animals; they're family. 
+            That's why we strive to provide you with everything you need to care for your furry friend in one convenient location. 
+            From premium pet food and delicious treats to the latest toys and accessories, we've got you covered.<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            Our team of experienced pet lovers is always on hand to provide expert advice and answer any questions you may have about pet care. 
+            Whether you're a new pet owner or a seasoned pro, we're here to support you on your journey.
           </p>
         </div>
+      </div>
+      <div class="row">
+        <div class="column content">
+          <h3>Your One-Stop Shop for Pet Care</h3>
+          <hr>
+          <br>
+          <br>
+          <p class="about-us-content">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            We believe in offering only the best products for your pets, which is why we carefully curate our selection to ensure that everything we stock meets our high standards. 
+            We're constantly searching for new and innovative products that will enhance your pet's quality of life.
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            So whether you're shopping for your furry friend or just browsing, we invite you to come and experience the RASVEL's Pet Store difference. 
+            We're confident that you'll love our products and our friendly, knowledgeable staff.
+          </p>
+        </div>
+        
+        <div class="column">
+          <img src="images/pet-care.png"/>
+        </div>
+      </div>
+
+      <div class="row row-bottom">
+        <div class="bottom-content">
+          <h3>Your Trusted Pet Supply Store.</h3>
+          <hr>
+          <p class="bottom-content">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            At RASVEL's, our only passion is your pet's wellbeing.
+            </p>
+        </div>
+        
       </div>
     </main>
     <!-- footer contains page info and social media links -->

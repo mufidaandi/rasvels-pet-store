@@ -10,7 +10,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 90px;
 }
 
 p {
@@ -25,10 +24,16 @@ p {
 }
 
 .content-wrapper {
-    background-color: #F6F3F0;
+    background-color: white;
+    text-align: center;
 }
 .contact-us-wrapper img {
     width: 10%;
+}
+
+.contact-us-wrapper {
+    
+    margin-bottom: 65px;
 }
 
 .contact-us-container {

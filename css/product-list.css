@@ -73,3 +73,12 @@
 .product-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+
+.category-banner {
+    width: 80%;
+    background-image: url('../images/cat_food.png');
+}
+
+.category-banner img {
+    width: 100%;
+}
