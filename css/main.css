@@ -1,5 +1,9 @@
 /* MAIN */
 
+a:visited, a:link {
+  color: #8a4421;
+}
+
 .content-wrapper {
   width: 100%;
   background: white;

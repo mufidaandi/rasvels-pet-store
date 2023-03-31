@@ -35,6 +35,10 @@ function setCatActiveCategory() {
     $("#food").attr("src", "images/catfood.png");
     $("#treat").attr("src", "images/cattreat.png");
     $("#supplies").attr("src", "images/catsupplies.png");
+
+    $("#sub-food").attr("href", "./product-list.html?category=cat_food");
+    $("#sub-treat").attr("href", "./product-list.html?category=cat_treat");
+    $("#sub-supply").attr("href", "./product-list.html?category=cat_supply");
   
     $("#category-image").attr("src", "images/catto.png");
   }
@@ -48,6 +52,10 @@ function setCatActiveCategory() {
     $("#treat").attr("src", "images/dogtreats.png");
     $("#supplies").attr("src", "images/dogsupplies.png");
   
+    $("#sub-food").attr("href", "./product-list.html?category=dog_food");
+    $("#sub-treat").attr("href", "./product-list.html?category=dog_treat");
+    $("#sub-supply").attr("href", "./product-list.html?category=dog_supply");
+
     $("#category-image").attr("src", "images/doggo.png");
   }
   
@@ -60,6 +68,10 @@ function setCatActiveCategory() {
     $("#treat").attr("src", "images/birdtreats.png");
     $("#supplies").attr("src", "images/birdsupplies.png");
   
+    $("#sub-food").attr("href", "./product-list.html?category=bird_food");
+    $("#sub-treat").attr("href", "./product-list.html?category=bird_treat");
+    $("#sub-supply").attr("href", "./product-list.html?category=bird_supply");
+
     $("#category-image").attr("src", "images/birdo.png");
   }
 

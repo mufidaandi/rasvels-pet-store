@@ -1,3 +1,7 @@
+html, body {
+    font-family: 'Poppins';
+}
+
 .container * {
     box-sizing: border-box;
 }
@@ -169,7 +173,7 @@ button {
     margin: 0 0 20px 0;
     text-decoration: none;
     display: block;
-    font-family: "Montserrat";
+    font-family: "Poppins";
     font-weight: 800;
     line-height: 30px;
     letter-spacing: 0.02rem;
@@ -264,7 +268,7 @@ a {
     letter-spacing: 0;
     word-break: break-all;
     line-height: 1.7;
-    font-family: "Montserrat";
+    font-family: "Poppins";
 }
 
 .single-pro-content .ec-single-sales {
@@ -454,7 +458,7 @@ a {
     font-weight: 700;
     font-size: 22px;
     line-height: 1.2;
-    font-family: "Montserrat";
+    font-family: "Poppins";
     letter-spacing: 0;
 }
 
@@ -954,7 +958,7 @@ p {
 }
 .tab-pane p {
     color: #777;
-    font-family: "Montserrat";
+    font-family: "Poppins";
     font-size: 14px;
     font-weight: 500;
 }
@@ -1017,7 +1021,7 @@ p {
     font-weight: 700;
     line-height: 1;
     margin-bottom: 10px;
-    font-family: "Montserrat";
+    font-family: "Poppins";
 }
 
 .ec-single-pro-tab-content .ec-ratting-content .ec-ratting-star {

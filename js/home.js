@@ -11,10 +11,8 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  console.log("show slides");
   let i;
   let slides = document.getElementsByClassName("mySlides");
-  console.log("slides " + slides[0]);
 
   let dots = document.getElementsByClassName("dot");
   if (n > slides.length) {
@@ -100,6 +98,10 @@ function setCatActiveCategory() {
   $("treat").src = "images/cattreat.png";
   $("supplies").src = "images/catsupplies.png";
 
+  $("sub-food").href = "./product-list.html?category=cat_food";
+  $("sub-treat").href = "./product-list.html?category=cat_treat";
+  $("sub-supply").href = "./product-list.html?category=cat_supply";
+
   $("category-image").src = "images/catto.png";
 }
 
@@ -112,6 +114,10 @@ function setDogActiveCategory() {
   $("treat").src = "images/dogtreats.png";
   $("supplies").src = "images/dogsupplies.png";
 
+  $("sub-food").href = "./product-list.html?category=dog_food";
+  $("sub-treat").href = "./product-list.html?category=dog_treat";
+  $("sub-supply").href = "./product-list.html?category=dog_supply";
+
   $("category-image").src = "images/doggo.png";
 }
 
@@ -123,6 +129,10 @@ function setBirdActiveCategory() {
   $("food").src = "images/birdfood.png";
   $("treat").src = "images/birdtreats.png";
   $("supplies").src = "images/birdsupplies.png";
+  
+  $("sub-food").href = "./product-list.html?category=bird_food";
+  $("sub-treat").href = "./product-list.html?category=bird_treat";
+  $("sub-supply").href = "./product-list.html?category=bird_supply";
 
   $("category-image").src = "images/birdo.png";
 }
@@ -163,7 +173,7 @@ window.onload = function () {
   showSlides();
   setInterval(function () {
     plusSlides(1);
-  }, 2000);  
+  }, 2000);
 
   $("cat-image").onmouseover = enlargeCatAnimation;
   $("cat-image").onmouseleave = reduceCatAnimation;

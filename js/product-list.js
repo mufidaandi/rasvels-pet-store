@@ -24,10 +24,24 @@ $(document).ready(function() {
   for (let i = 0; i < products.length; i++) {
     if (productSubCategory) {
       product = products.filter(value => value.category === productCategory && value.subcategory === productSubCategory)[i];
+      if (product.subcategory == 'food') {
+        $('.shop-banner h1').text('FOOD');
+      } else if (product.subcategory == 'treat') {
+        $('.shop-banner h1').text('TREAT');
+      } else {
+        $('.shop-banner h1').text('SUPPLIES');
+      }
     } else {      
       product = products.filter(value => value.category === productCategory)[i];
     }
     
+    if (product.category == 'cat') {
+      $('.shop-banner-img').attr('src', 'images/shop-cat.png');
+    } else if (product.category == 'dog') {
+      $('.shop-banner-img').attr('src', 'images/shop-dog.png');
+    } else {
+      $('.shop-banner-img').attr('src', 'images/shop-bird.png');
+    }
 
     // Create a div for the product card
     const productCard = $('<div class="product-card"></div>');
@@ -53,19 +67,24 @@ $(document).ready(function() {
 
     // Create an h2 element for the product name
     const productName = $('<p class="product-name"></p>');
-    productName.text(product.name);
+    const name = product.name.split(' ')
+    const brand_name = $('<b>'+name[0]+'</b>');
+    const product_name = $('<span>'+ name.slice(1).join(" ") +'</span>'); 
+    productName.append(brand_name);
+    productName.append(product_name);
 
     // Create a div for the product rating
     const productRating = $('<div class="product-rating"></div>');
 
+    // const productRatingTextContainer = $('<div class="product-rating-text"></div>');
     // Create a span element for the product rating value
     const productRatingValue = $('<span class="product-rating-value"></span>');
-    const filledStars = Math.floor(Math.random() * 6);
+    const filledStars = product.rating;
     productRatingValue.text(filledStars);
 
     // Create filled stars
     for (let j = 0; j < filledStars; j++) {
-      const star = $('<i>').addClass('fas fa-star');
+      const star = $('<i>').addClass('ecicon eci-star fill');
       productRating.append(star);
     }
 
@@ -74,7 +93,7 @@ $(document).ready(function() {
 
     // Create empty stars
     for (let j = 0; j < emptyStars; j++) {
-      const star = $('<i>').addClass('far fa-star');
+      const star = $('<i>').addClass('ecicon eci-star-o');
       productRating.append(star);
     }
 
@@ -82,13 +101,16 @@ $(document).ready(function() {
     const productRatingMax = $('<span class="product-rating-max"></span>');
     productRatingMax.text('/5');
 
+    // productRatingTextContainer.append(productRatingValue);
+    // productRatingTextContainer.append(productRatingMax);
+
     // Add the rating value and maximum to the rating div
     productRating.append(productRatingValue);
     productRating.append(productRatingMax);
 
     // Add the product name, price, and rating to the product details
-    productDetails.append(productPrice);
     productDetails.append(productName);
+    productDetails.append(productPrice);
     productDetails.append(productRating);
 
     // Add the product image and details to the product card
@@ -100,4 +122,7 @@ $(document).ready(function() {
     // Add the product card to the product list
     productList.append(productLinkStart);
   }
+
+
+
 });
