@@ -37,7 +37,7 @@
 /* Product name */
 .product-name {
   font-size: 14px;
-  /* font-weight: 700; */
+  height: 50px;
   color: #0f1111;
   text-align: left;
 }
@@ -84,12 +84,12 @@
 }
 
 .shop-banner {
-  width: 100%;
+  width: 80%;
   margin: auto;
 }
 .shop-banner img {
   width: 100%;
-  border-bottom: 5px solid #8a4421;
+  margin-top: 10px;
 }
 
 #product-list a:visited,
@@ -126,4 +126,8 @@ hr {
   margin-bottom: 0px;
   border-style: solid;
   border-radius: 100px;
+}
+
+.product-name b {
+  color: #8a4421;
 }

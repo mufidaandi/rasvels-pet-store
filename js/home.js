@@ -11,195 +11,152 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
+  let slides = $(".mySlides");
 
-  let dots = document.getElementsByClassName("dot");
+  let dots = $(".dot");
   if (n > slides.length) {
     slideIndex = 1;
   }
   if (n < 1) {
     slideIndex = slides.length;
   }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
+  slides.hide();
+  dots.removeClass("active");
+  slides.eq(slideIndex - 1).show();
+  dots.eq(slideIndex - 1).addClass("active");
 }
 
 function enlargeCatAnimation() {
-  $("cat-image").style.width = "110%";
+  $("#cat-image").css("width", "110%");
 }
 
 function reduceCatAnimation() {
-  $("cat-image").style.width = "100%";
+  $("#cat-image").css("width", "100%");
 }
 
 function enlargeDogAnimation() {
-  $("dog-image").style.width = "110%";
+  $("#dog-image").css("width", "110%");
 }
 
 function reduceDogAnimation() {
-  $("dog-image").style.width = "100%";
+  $("#dog-image").css("width", "100%");
 }
 
 function enlargeBirdAnimation() {
-  $("bird-image").style.width = "110%";
+  $("#bird-image").css("width", "110%");
 }
 
 function reduceBirdAnimation() {
-  $("bird-image").style.width = "100%";
+  $("#bird-image").css("width", "100%");
 }
 
-("use strict");
+function topRatedProducts() {
+  var topProducts;
+  const productList = $("#product-list");
 
-var expandWidth = false;
+  loadDetail().then(function (products) {
+    topProducts = products.filter((value) => value.rating >= 4);
 
-var $ = function (id) {
-  return document.getElementById(id);
-};
+    $.each(topProducts.slice(0,5), function (index, product) {
+      // Create a div for the product card
+      const productCard = $('<div class="product-card"></div>');
 
-var expandSearch = function () {
-  if (expandWidth) {
-    $("search-input").classList.add("expand");
-    $("search-input").focus();
-  } else {
-    $("search-input").classList.remove("expand");
-  }
-  expandWidth = !expandWidth;
-};
+      // Create a div for the product details
+      const productLinkStart = $("<a>");
+      productLinkStart.attr(
+        "href",
+        "product-detail.html?productId=" + product.id
+      );
 
-var showModal = function () {
-  $("myaccount-modal").style.display = "flex";
-};
+      // Create an image element for the product image
+      const productImage = $("<img>");
+      productImage.attr("src", product.images[0]);
+      productImage.attr("alt", product.name);
+      productImage.attr("height", "100");
+      productImage.attr("width", "100");
+      productImage.addClass("product-image");
 
-var hideModal = function () {
-  $("myaccount-modal").style.display = "none";
-};
+      // Create a div for the product details
+      const productDetails = $('<div class="product-details"></div>');
 
-function hideBackground() {
-  $("content-wrapper").style.filter = "brightness(0.5)";
+      // Create a p element for the product price
+      const productPrice = $('<p class="product-price"></p>');
+      productPrice.text(`$${product.price}`);
+
+      // Create an h2 element for the product name
+      const productName = $('<p class="product-name"></p>');
+      const name = product.name.split(" ");
+      const brand_name = $("<b>" + name[0] + "</b>");
+      const product_name = $("<span>" + name.slice(1).join(" ") + "</span>");
+      productName.append(brand_name);
+      productName.append(product_name);
+
+      // Create a div for the product rating
+      const productRating = $('<div class="product-rating"></div>');
+
+      // const productRatingTextContainer = $('<div class="product-rating-text"></div>');
+      // Create a span element for the product rating value
+      const productRatingValue = $(
+        '<span class="product-rating-value"></span>'
+      );
+      const filledStars = product.rating;
+      productRatingValue.text(filledStars);
+
+      // Create filled stars
+      for (let j = 0; j < filledStars; j++) {
+        const star = $("<i>").addClass("ecicon eci-star fill");
+        productRating.append(star);
+      }
+
+      // Calculate number of empty stars
+      const emptyStars = 5 - filledStars;
+
+      // Create empty stars
+      for (let j = 0; j < emptyStars; j++) {
+        const star = $("<i>").addClass("ecicon eci-star-o");
+        productRating.append(star);
+      }
+
+      // Create a span element for the maximum product rating
+      const productRatingMax = $('<span class="product-rating-max"></span>');
+      productRatingMax.text("/5");
+
+      // productRatingTextContainer.append(productRatingValue);
+      // productRatingTextContainer.append(productRatingMax);
+
+      // Add the rating value and maximum to the rating div
+      productRating.append(productRatingValue);
+      productRating.append(productRatingMax);
+
+      // Add the product name, price, and rating to the product details
+      productDetails.append(productName);
+      productDetails.append(productPrice);
+      productDetails.append(productRating);
+
+      // Add the product image and details to the product card
+      productCard.append(productImage);
+      productCard.append(productDetails);
+
+      productLinkStart.append(productCard);
+
+      // Add the product card to the product list
+      productList.append(productLinkStart);
+    });
+  });
 }
 
-function unhideBackground() {
-  $("content-wrapper").style.filter = "brightness(1.0)";
-}
-
-function setCatActiveCategory() {
-  $("cat").classList.add("active-sub");
-  $("dog").classList.remove("active-sub");
-  $("bird").classList.remove("active-sub");
-
-  $("food").src = "images/catfood.png";
-  $("treat").src = "images/cattreat.png";
-  $("supplies").src = "images/catsupplies.png";
-
-  $("sub-food").href = "./product-list.html?category=cat_food";
-  $("sub-treat").href = "./product-list.html?category=cat_treat";
-  $("sub-supply").href = "./product-list.html?category=cat_supply";
-
-  $("category-image").src = "images/catto.png";
-}
-
-function setDogActiveCategory() {
-  $("cat").classList.remove("active-sub");
-  $("dog").classList.add("active-sub");
-  $("bird").classList.remove("active-sub");
-
-  $("food").src = "images/dogfood.png";
-  $("treat").src = "images/dogtreats.png";
-  $("supplies").src = "images/dogsupplies.png";
-
-  $("sub-food").href = "./product-list.html?category=dog_food";
-  $("sub-treat").href = "./product-list.html?category=dog_treat";
-  $("sub-supply").href = "./product-list.html?category=dog_supply";
-
-  $("category-image").src = "images/doggo.png";
-}
-
-function setBirdActiveCategory() {
-  $("cat").classList.remove("active-sub");
-  $("dog").classList.remove("active-sub");
-  $("bird").classList.add("active-sub");
-
-  $("food").src = "images/birdfood.png";
-  $("treat").src = "images/birdtreats.png";
-  $("supplies").src = "images/birdsupplies.png";
-  
-  $("sub-food").href = "./product-list.html?category=bird_food";
-  $("sub-treat").href = "./product-list.html?category=bird_treat";
-  $("sub-supply").href = "./product-list.html?category=bird_supply";
-
-  $("category-image").src = "images/birdo.png";
-}
-
-function userIconOnHover() {
-  $("user-icon").style.filter = "brightness(1.3)";
-  $("content-wrapper").style.filter = "brightness(0.5)";
-}
-
-function userIconOnLeave() {
-  $("user-icon").style.filter = "brightness(1)";
-  $("content-wrapper").style.filter = "brightness(1.0)";
-}
-
-function cartIconOnHover() {
-  $("cart-icon").style.filter = "brightness(1.5)";
-}
-
-function cartIconOnLeave() {
-  $("cart-icon").style.filter = "brightness(1)";
-}
-
-function login() {
-  var storedName = localStorage.getItem("name");
-  var storedPw = localStorage.getItem("pw");
-
-  var userName = document.getElementById("uname");
-  var userPw = document.getElementById("pword");
-
-  if (userName.value == storedName && userPw.value == storedPw) {
-    alert("You are logged in.");
-  } else {
-    alert("Error on login");
-  }
-}
-
-window.onload = function () {
+$(document).ready(function () {
   showSlides();
   setInterval(function () {
     plusSlides(1);
   }, 2000);
 
-  $("cat-image").onmouseover = enlargeCatAnimation;
-  $("cat-image").onmouseleave = reduceCatAnimation;
-  $("dog-image").onmouseover = enlargeDogAnimation;
-  $("dog-image").onmouseleave = reduceDogAnimation;
-  $("bird-image").onmouseover = enlargeBirdAnimation;
-  $("bird-image").onmouseleave = reduceBirdAnimation;
+  $("#cat-image").on("mouseover", enlargeCatAnimation);
+  $("#cat-image").on("mouseleave", reduceCatAnimation);
+  $("#dog-image").on("mouseover", enlargeDogAnimation);
+  $("#dog-image").on("mouseleave", reduceDogAnimation);
+  $("#bird-image").on("mouseover", enlargeBirdAnimation);
+  $("#bird-image").on("mouseleave", reduceBirdAnimation);
 
-  expandSearch();
-
-  $("myaccount").onmouseover = userIconOnHover;
-  $("myaccount").onmouseleave = userIconOnLeave;
-  $("myaccount-modal").onmouseover = userIconOnHover;
-  $("myaccount-modal").onmouseleave = userIconOnLeave;
-
-  $("cart-wrapper").onmouseover = cartIconOnHover;
-  $("cart-wrapper").onmouseleave = cartIconOnLeave;
-
-  $("cat").onmouseover = setCatActiveCategory;
-  $("dog").onmouseover = setDogActiveCategory;
-  $("bird").onmouseover = setBirdActiveCategory;
-
-  $("search-input").onblur = expandSearch;
-  $("search").onclick = expandSearch;
-  $("products").onmouseover = hideBackground;
-  $("products-modal").onmouseover = hideBackground;
-  $("products").onmouseleave = unhideBackground;
-  $("products-modal").onmouseleave = unhideBackground;
-};
+  topRatedProducts();
+});
