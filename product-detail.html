@@ -195,10 +195,10 @@
                                             
                                             <div class="ec-single-qty">
                                                 <div class="qty-plus-minus">
-                                                    <input class="qty-input" type="text" name="ec_qtybtn" value="1" />
+                                                    <input class="qty-input" type="text" name="ec_qtybtn" value="1" id="product-quantity-selected"/>
                                                 </div>
                                                 <div class="ec-single-cart ">
-                                                    <button class="btn btn-primary">Add To Cart</button>
+                                                    <button class="btn btn-primary" onclick="addToCart()">Add To Cart</button>
                                                 </div>
                                                 <div class="ec-single-wishlist">
                                                     <a class="ec-btn-group wishlist" title="Wishlist"><img
@@ -390,5 +390,6 @@
     <!--main js-->
     <script src="js/product-detail.js"></script>
     <script src="js/nav.js"></script> 
+    <script src="js/cart.js"></script>
   </body>
 </html>
