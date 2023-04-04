@@ -110,3 +110,13 @@ getProductById(productId).then(function (product) {
 });
 
 jQuery(document).ready(function () {});
+
+function addToCart(){
+  var userId = 1;
+  var item = {};
+  item.id = productId;
+  item.name = jQuery('#product-name').text();
+  item.price = jQuery('#product-price').text();
+  item.quantity = Number(jQuery('#product-quantity-selected').val());
+  addItemToCart(item);
+}
