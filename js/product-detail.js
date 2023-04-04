@@ -116,7 +116,7 @@ function addToCart(){
   var item = {};
   item.id = productId;
   item.name = jQuery('#product-name').text();
-  item.price = jQuery('#product-price').text();
+  item.price = jQuery('#product-price').text().substring(1);
   item.quantity = Number(jQuery('#product-quantity-selected').val());
   addItemToCart(item);
 }
