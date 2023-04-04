@@ -133,5 +133,11 @@ function setCatActiveCategory() {
     $("#search-input").blur(expandSearch);
     $("#search").click(expandSearch);
     $("#products, #products-modal").hover(hideBackground, unhideBackground);
+
+    $(".search-bar").submit(function( event ) {
+      const keyword = $("#search-input").first().val();
+      window.location.href = "product-search.html?search=" + keyword;
+      event.preventDefault();
+    });
   });
   
