@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Registration</title>
+    <title>Log In</title>
     <link rel="icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="css/registration.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/main.css" />
@@ -19,65 +19,36 @@
         <a href="./index.html"><img src="images/logo.png" /></a>
       </div>
 
-      <h1>Create Account</h1>
+      <h1>Log In</h1>
 
       <div class="form-container">
         <form action="">
           <div class="row">
             <div class="column">
-              <label for="firstName">First Name <span class="error firstNameErrorMessage">*</span></label>
-              <input type="text" id="firstName">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="column">
-              <label for="lastName">Last Name <span class="error lastNameErrorMessage">*</span></label>
-              <input type="text" id="lastName">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="column">
               <label for="email">Email Address <span class="error emailErrorMessage">*</span></label>
-              <input type="text" name="" id="email">
+              <input type="email" name="" id="email">
             </div>
           </div>
 
           <div class="row">
             <div class="column">
-              <label for="confirm-email">Confirm Email Address <span class="error confirmEmailErrorMessage">*</span></label>
-              <input type="email" name="" id="confirmEmail">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="column">
-              <label for="password">Password <span class="error passwordErrorMessage">*</span></label>
+              <label for="password">Password  <span class="error passwordErrorMessage">*</span></label>
               <input type="password" name="" id="password">
-            </div>
-          </div>
-           
-          <div class="row">
-            <div class="column">
-              <label for="confirm-password">Confirm Your Password <span class="error confirmPasswordErrorMessage">*</span></label>
-              <input type="password" name="" id="confirmPassword">
             </div>
           </div>
 
           <div class="row">
             <div class="right">
               <div class="submit-btn-container">
-                <button id="submit-btn">Create Account</button>
+                <button id="submit-btn">Log In</button>
               </div>
             </div>
           </div>
         </form>
       </div>
 
-      <p>By creating an account, you agree to Rasvel's Conditions of Use and Privacy Notice</p>
-
-      <p>Already have an account? <a href="./login.html">Log in</a></p>
+      <p>Unable to Login? <a href="./forgotPassword.html">Forgot Password</a></p>
+      <p>New to Rasvel's <a href="./registration.html">Create Account</a></p>
     </main>
     <!-- footer contains page info and social media links -->
     <footer class="footer-wrapper">
@@ -88,6 +59,6 @@
       </div>
     </footer>
 
-    <script src="./js/registration.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>

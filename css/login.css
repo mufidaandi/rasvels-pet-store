@@ -52,7 +52,7 @@ main {
 
 .column {
     float: left;
-    width: 300px;
+    width: 100%;
     align-content: stretch;
 }
 
@@ -102,7 +102,7 @@ main {
 }
 
 main p{
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding-bottom: 10px;
 }
 
@@ -111,6 +111,7 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 .form-container{
