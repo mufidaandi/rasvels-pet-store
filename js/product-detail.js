@@ -32,7 +32,7 @@ getProductById(productId).then(function (product) {
   jQuery("#product-price").text("$" + product.price);
   jQuery("#product-quantity").text(product.quantity);
   // var productShortDesc = product.description.replace('<p>','').replace('</p>','').replace('<div>','').replace('</div>','').substring(0,150) + "...";
-  jQuery("#product-short-desc").append(product.description);
+  jQuery("#product-short-desc").html(product.description);
   var strHover = "";
   var strThumb = "";
   product.images.forEach((element) => {
