@@ -13,14 +13,15 @@ form.addEventListener('submit', (e) => {
     validateForm();
 });
 
+// function to validate the user entered email address
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
 
 //function that checks if any of the mandatory form fields are left empty.
-//also checks if password and confirmPassword entered by the user are same or not.
 function validateForm() {
+    // to check if user entered email is valid or not
     if(!(email.value !== '' && validateEmail(email.value))){
         emailErrorMessage.innerText = " (Invalid email id entered!)"
     } else{
