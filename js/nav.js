@@ -100,21 +100,6 @@ function setCatActiveCategory() {
   function loginBtnOnLeave() {
     $("#login-btn").css("filter", "brightness(1)");
   }
-  
-  function login() {
-    var storedName = localStorage.getItem("name");
-    var storedPw = localStorage.getItem("pw");
-  
-    var userName = $("#uname");
-    var userPw = $("#pword");
-  
-    if (userName.val() == storedName && userPw.val() == storedPw) {
-      alert("You are logged in.");
-    } else {
-      alert("Error on login");
-    }
-  }
-  
 
   $(document).ready(function() {
     expandSearch();

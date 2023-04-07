@@ -144,10 +144,18 @@
     border-right: 5px solid transparent;
   }
 
-  .account-signin {
+  .account-signin, .account-profile {
     border: 1px solid #8a4421;
     background-color: white;
     padding: 0 15px;
+  }
+
+  .account-profile {
+    text-align: center;
+  }
+
+  .profile {
+    cursor: pointer;
   }
 
   .form-container{
@@ -184,6 +192,10 @@
     text-align: right;
     width: 100%;
     cursor: pointer;
+  }
+
+  .btn-container #logout-btn {
+    margin-top: 0 !important;
   }
 
   .register {
