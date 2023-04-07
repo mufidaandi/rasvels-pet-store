@@ -6,6 +6,7 @@ const firstName = document.getElementById('firstName');
 const lastName = document.getElementById('lastName');
 const email = document.getElementById('email');
 const confirmEmail = document.getElementById('confirmEmail');
+const username = document.getElementById('username');
 const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirmPassword');
 
@@ -14,14 +15,9 @@ const firstNameErrorMessage = document.querySelector('.firstNameErrorMessage');
 const lastNameErrorMessage = document.querySelector('.lastNameErrorMessage');
 const emailErrorMessage = document.querySelector('.emailErrorMessage');
 const confirmEmailErrorMessage = document.querySelector('.confirmEmailErrorMessage');
+const usernameErrorMessage = document.querySelector('.usernameErrorMessage');
 const passwordErrorMessage = document.querySelector('.passwordErrorMessage');
 const confirmPasswordErrorMessage = document.querySelector('.confirmPasswordErrorMessage');
-
-//event listener that gets activated when the button is clicked
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    validateForm();
-});
 
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -59,6 +55,13 @@ function validateForm() {
         confirmEmailErrorMessage.innerText = "*";
     }
 
+    // to check if user entered valid username or not
+    if (username.value === '') {
+        usernameErrorMessage.innerText = " (Username cannot be empty!)";
+    } else{
+        usernameErrorMessage.innerText = "*";
+    }
+
     // to check if user entered valid password or not
     if (password.value === '' || password.value.length<6) {
         passwordErrorMessage.innerText = " (Password cannot be empty & must be minimum 6 characters!)"
@@ -73,3 +76,27 @@ function validateForm() {
         confirmPasswordErrorMessage.innerText = "*";
     }
 }
+
+function showLogin() {
+    console.log("storedUser " + storedUser);
+    if(!storedUser) {
+        $("#login").css('display', 'flex');
+    } else {
+        var $loggedIn = $("<h1>You are already logged in.</h1>");
+        var $goToProducts = $("<a href='index.html'><h3><u>Go to Home</u></h3></a>");
+        $(".register-form-container").append($loggedIn);
+        $(".register-form-container").append($goToProducts);
+    }
+    $("#register").css('display', 'none');
+}
+
+function hideLogin() {
+    $("#login").css('display', 'none');
+    $("#register").css('display', 'block');
+}
+
+$(document).ready(function() {
+    hideLogin();
+    $("#showLogin").click(showLogin);
+    checkLogin();
+});
