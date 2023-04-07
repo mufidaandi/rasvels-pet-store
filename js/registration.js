@@ -27,28 +27,28 @@ function validateEmail(email) {
 //function that checks if any of the mandatory form fields are left empty.
 //also checks if password and confirmPassword entered by the user are same or not.
 function validateForm() {
-    // to check if user entered valid first name or not
+    // to check if user entered first name is valid or not
     if (firstName.value === '') {
         firstNameErrorMessage.innerText = " (First name cannot be empty!)";
     } else{
         firstNameErrorMessage.innerText = "*";
     }
 
-    // to check if user entered valid last name or not
+    // to check if user entered last name is valid or not
     if (lastName.value === '') {
         lastNameErrorMessage.innerText = " (Last name cannot be empty!)";
     } else{
         lastNameErrorMessage.innerText = "*";
     }
 
-
+    // to check if user entered email is valid or not
     if(!(email.value !== '' && validateEmail(email.value))){
         emailErrorMessage.innerText = " (Invalid email id entered!)"
     } else{
         emailErrorMessage.innerText = "*";
     }
 
-    // to check if both password and confirmPassword are same or not
+    // to check if both email and confirmEmail are same or not
     if (email.value !== confirmEmail.value) {
         confirmEmailErrorMessage.innerText = " (Confirm-Email must be same as the email above!)"
     } else{
