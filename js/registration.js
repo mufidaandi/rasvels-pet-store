@@ -19,6 +19,8 @@ const usernameErrorMessage = document.querySelector('.usernameErrorMessage');
 const passwordErrorMessage = document.querySelector('.passwordErrorMessage');
 const confirmPasswordErrorMessage = document.querySelector('.confirmPasswordErrorMessage');
 
+var isValid = true;
+
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
@@ -30,6 +32,7 @@ function validateForm() {
     // to check if user entered first name is valid or not
     if (firstName.value === '') {
         firstNameErrorMessage.innerText = " (First name cannot be empty!)";
+        isValid = false;
     } else{
         firstNameErrorMessage.innerText = "*";
     }
@@ -37,20 +40,23 @@ function validateForm() {
     // to check if user entered last name is valid or not
     if (lastName.value === '') {
         lastNameErrorMessage.innerText = " (Last name cannot be empty!)";
+        isValid = false;
     } else{
         lastNameErrorMessage.innerText = "*";
     }
 
     // to check if user entered email is valid or not
     if(!(email.value !== '' && validateEmail(email.value))){
-        emailErrorMessage.innerText = " (Invalid email id entered!)"
+        emailErrorMessage.innerText = " (Invalid email id entered!)";
+        isValid = false;
     } else{
         emailErrorMessage.innerText = "*";
     }
 
     // to check if both email and confirmEmail are same or not
     if (email.value !== confirmEmail.value) {
-        confirmEmailErrorMessage.innerText = " (Confirm-Email must be same as the email above!)"
+        confirmEmailErrorMessage.innerText = " (Confirm-Email must be same as the email above!)";
+        isValid = false;
     } else{
         confirmEmailErrorMessage.innerText = "*";
     }
@@ -58,23 +64,56 @@ function validateForm() {
     // to check if user entered valid username or not
     if (username.value === '') {
         usernameErrorMessage.innerText = " (Username cannot be empty!)";
+        isValid = false;
     } else{
         usernameErrorMessage.innerText = "*";
     }
 
     // to check if user entered valid password or not
     if (password.value === '' || password.value.length<6) {
-        passwordErrorMessage.innerText = " (Password cannot be empty & must be minimum 6 characters!)"
+        passwordErrorMessage.innerText = " (Password cannot be empty & must be minimum 6 characters!)";
+        isValid = false;
     } else{
         passwordErrorMessage.innerText = "*";
     }
 
     // to check if both password and confirmPassword are same or not
     if (password.value !== confirmPassword.value) {
-        confirmPasswordErrorMessage.innerText = " (Confirm-Password must be same as the password above!)"
+        confirmPasswordErrorMessage.innerText = " (Confirm-Password must be same as the password above!)";
+        isValid = false;
     } else{
         confirmPasswordErrorMessage.innerText = "*";
     }
+
+    if (isValid) {
+        createUser();
+    }
+}
+
+function createUser() {
+    var name = $("#firstName").val() + " " + $("#lastName").val();
+    var username = $('#username').val();
+    var password = $('#password').val();
+    var email = $("#email").val();
+
+    var users = JSON.parse(localStorage.getItem('users')) || [];
+    var lastUserId = users.length > 0 ? users[users.length - 1].id : 0;
+    var newUserId = lastUserId + 1;
+
+    var user = {
+        id: newUserId,
+        name: name,
+        username: username,
+        password: password,
+        role: "user",
+        email: email
+    };
+
+    users.push(user);
+
+    localStorage.setItem('users', JSON.stringify(users));
+    alert("Account created! Please log in.")
+    window.location.href = "index.html";
 }
 
 function showLogin() {

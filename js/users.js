@@ -20,6 +20,7 @@ function userGetCurrentLoginUser(){
 }
 
 function userLogin(username, password) {
+    var users = JSON.parse(localStorage.getItem('users'));
     const user = users.find(user => user.username === username && user.password === password);
     if (user) {
       alert("Login successful");
@@ -28,14 +29,14 @@ function userLogin(username, password) {
     } else {
         // to check if user entered valid username or not
         if ($("#uname").val() === '') {
-            $(".usernameErrorMessage").text(" Username cannot be empty");
+            $(".usernameErrorMessage").text(" (Username cannot be empty!)");
         } else{
             $(".usernameErrorMessage").text("*");
         }
     
         // to check if user entered valid password or not
         if ($("#pword").val()=== '') {
-            $(".passwordErrorMessage").text(" Password cannot be empty");
+            $(".passwordErrorMessage").text(" (Password cannot be empty!)");
         } else{
             $(".passwordErrorMessage").text("*");
         }
@@ -110,4 +111,8 @@ function logout(){
 
 $(document).ready(function() {
     checkLogin();
+    var checkUsers = JSON.parse(localStorage.getItem('users'));
+    if (checkUsers === null) {
+        localStorage.setItem('users', JSON.stringify(users));
+    }
 });
