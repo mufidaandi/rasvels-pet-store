@@ -83,14 +83,9 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .btn-primary {
-    color: #ffffff;
-    background-color: #3474d4;
-    border-color: #3474d4;
-}
-.btn-primary {
-    color: #ffffff;
-    background-color: #3474d4;
-    border-color: #3474d4;
+    color: #ffffff !important;
+    background-color: #8a4421;
+    border-color: #8a4421;
     border: 0;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;

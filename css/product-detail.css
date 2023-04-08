@@ -571,7 +571,7 @@ a {
     font-weight: 700;
 }
 
-input {
+.content-wrapper input {
     margin: 0;
     font-family: inherit;
     font-size: inherit;

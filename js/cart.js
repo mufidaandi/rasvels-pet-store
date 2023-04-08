@@ -65,7 +65,8 @@ function addItemToCart(item) {
     var items = getAllCartItems();
     var subTotal = 0;
     if(storedUser) {
-      if (items) {
+      if (items.length != 0) {
+        
         for (let i = 0; i < items.length; i++) {
           const row = $('<tr></tr>');
           const colProduct = $('<td class="cart-pro-name"></td>');
@@ -128,13 +129,13 @@ function addItemToCart(item) {
         }
       } else {
         const row = $('<tr></tr>');
-        const emptyCart = $('<span>You have nothing in your cart.</span>');
+        const emptyCart = $('<p class="empty-cart">You have nothing in your cart.</p>');
         row.append(emptyCart);
         tableContainer.append(row);
       }
     } else {
       const row = $('<tr></tr>');
-        const emptyCart = $('<span style="color:red">Please log in to add items to cart.</span>');
+        const emptyCart = $('<p class="empty-cart">Please log in to add items to cart.</p>');
         row.append(emptyCart);
         tableContainer.append(row);
     }
@@ -157,7 +158,7 @@ function addItemToCart(item) {
       //updateTotal();
       
       // Re-display the updated cart
-      $('.cart-table-content table tbody').text(''); 
+      $('.cart-table-content table tbody').text('You have nothing in your cart.'); 
       displayCart();
     });
   }
@@ -178,7 +179,7 @@ function addItemToCart(item) {
     // clear all items in the cart
     var userCart = getAllCartItems();
     if (userCart === null || userCart.length == 0){
-      alert("Your cart is lonely! Give it some company by booking your favorite items from our collection");
+      alert("Your cart is lonely! Give it some company by adding your favorite pet items from our collection.");
     } else{
       myform.submit();
     }
