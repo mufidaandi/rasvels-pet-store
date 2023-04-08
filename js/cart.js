@@ -63,6 +63,7 @@ function addItemToCart(item) {
   function displayCart(){
     const tableContainer = $('.cart-table-content table tbody');
     var items = getAllCartItems();
+    var subTotal = 0;
     if(storedUser) {
       if (items) {
         for (let i = 0; i < items.length; i++) {
@@ -141,12 +142,47 @@ function addItemToCart(item) {
     totalAmount = subTotal + 9.99;
     $(".sub-total").text("$" + subTotal.toFixed(2));
     $(".total-amount").text("$" + totalAmount.toFixed(2));
+
+    // Add click event listener to trash icons
+    $('.trash-icon').on('click', function() {
+      // Get the index of the item to remove
+      const index = $(this).closest('tr').index();
+      
+      // Get the array of cart items and remove the item at the given index
+      const items = getAllCartItems();
+      items.splice(index, 1);
+      
+      // Update the cart and total amount
+      updateCart(items);
+      //updateTotal();
+      
+      // Re-display the updated cart
+      $('.cart-table-content table tbody').text(''); 
+      displayCart();
+    });
   }
+
 
   $(document).ready(function() {
     displayCart();
     // console.log(getAllCartItems());
     // localStorage.removeItem('userCart');
+
+
+    // Check if there is no items in the cart, system will not be redirect to checkout page.
+    const myform = document.getElementById("cartForm");
+    myform.addEventListener("submit", function(event) {
+    // prevent the form from submitting immediately
+    event.preventDefault();
+    
+    // clear all items in the cart
+    var userCart = getAllCartItems();
+    if (userCart === null || userCart.length == 0){
+      alert("Your cart is lonely! Give it some company by booking your favorite items from our collection");
+    } else{
+      myform.submit();
+    }
+    });
   });
   
   
