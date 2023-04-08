@@ -178,7 +178,7 @@ function addItemToCart(item) {
     
     // clear all items in the cart
     var userCart = getAllCartItems();
-    if (userCart === null || userCart.length == 0){
+    if (userCart === null || userCart.length == 0 || storedUser === null){
       alert("Your cart is lonely! Give it some company by adding your favorite pet items from our collection.");
     } else{
       myform.submit();
