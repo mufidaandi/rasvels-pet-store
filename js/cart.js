@@ -39,11 +39,27 @@ function addItemToCart(item) {
 
 
   function getAllCartItems(){
-    var myJsonData = localStorage.getItem('userCart');
+    var myJsonData = localStorage.getItem("userCart");
     var userCart = JSON.parse(myJsonData);
     return userCart;
   }
 
+  function updateCart(cartItems) {
+    localStorage.setItem("userCart", JSON.stringify(cartItems));
+    console.log(cartItems);
+    
+  }
+  function updateTotal() {
+    var items = getAllCartItems();
+    var subTotal = 0;
+    for (let i = 0; i < items.length; i++) {
+      subTotal += items[i].price * items[i].quantity;
+    }
+    var totalAmount = subTotal + 9.99; // Add shipping fee of $9.99
+    $(".sub-total").text("$" + subTotal.toFixed(2));
+    $(".total-amount").text("$" + totalAmount.toFixed(2));
+  }
+  
   function displayCart(){
     const tableContainer = $('.cart-table-content table tbody');
     var items = getAllCartItems();
@@ -78,13 +94,21 @@ function addItemToCart(item) {
           productQtyInput.attr('name', 'cartqtybutton');
           productQtyInput.attr('min', 1);
           productQtyInput.attr('value', items[i].quantity);
+          productQtyInput.on('input', function() {
+            const newQuantity = parseInt(productQtyInput.val());
+            items[i].quantity = newQuantity;
+            const newSubTotal = items[i].price * newQuantity;
+            colProductTotal.text("$" + newSubTotal.toFixed(2));
+            updateCart(items);
+            updateTotal();
+          });
           productQty.append(productQtyInput);
           colProductQty.append(productQty);
   
           // Subtotal
           const colProductTotal = $('<td class="cart-pro-subtotal"></td>');
           var productSubTotal = items[i].price * items[i].quantity;
-          colProductTotal.append("$" + productSubTotal);
+          colProductTotal.append("$" + productSubTotal.toFixed(2));
   
           subTotal += productSubTotal;
   
@@ -115,8 +139,8 @@ function addItemToCart(item) {
     }
     
     totalAmount = subTotal + 9.99;
-    $(".sub-total").text("$" + subTotal);
-    $(".total-amount").text("$" + totalAmount);
+    $(".sub-total").text("$" + subTotal.toFixed(2));
+    $(".total-amount").text("$" + totalAmount.toFixed(2));
   }
 
   $(document).ready(function() {
@@ -124,3 +148,5 @@ function addItemToCart(item) {
     // console.log(getAllCartItems());
     // localStorage.removeItem('userCart');
   });
+  
+  

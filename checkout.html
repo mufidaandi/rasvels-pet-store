@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Checkout</title>
-    <link rel="stylesheet" type="text/css" href="checkout.css">
+    <link rel="stylesheet" type="text/css" href="css/checkout.css">
     <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" /> 
@@ -12,6 +12,8 @@
     <script src="js/nav.js"></script>
     <script src="js/products.js"></script>
     <script src="js/users.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -248,15 +250,15 @@
                                 <div class="checkout-summary">
                                     <div>
                                         <span class="text-left">Sub-Total</span>
-                                        <span class="text-right">$274.00</span>
+                                        <span class="text-right" id="subTotal"></span>
                                     </div>
                                     <div>
                                         <span class="text-left">Delivery Charges</span>
-                                        <span class="text-right">$26.00</span>
+                                        <span class="text-right" id="deliverCHarges"></span>
                                     </div>
                                     <div class="checkout-summary-total">
                                         <span class="text-left">Total Amount</span>
-                                        <span class="text-right">$300.00</span>
+                                        <span class="text-right" id="totalAmount"></span>
                                     </div>
                                 </div>
 

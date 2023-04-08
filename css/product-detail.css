@@ -271,6 +271,23 @@ a {
     font-family: "Poppins";
 }
 
+.single-pro-content .ec-single-desc p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    letter-spacing: 0;
+    color: #777;
+    line-height: 24px;
+}
+.single-pro-content .ec-single-desc ul {
+    padding-left: 24px;
+}
+.single-pro-content .ec-single-desc ul li {
+    font-size: 15px;
+    list-style: outside;
+    margin-bottom: 4px;
+    color: #777;
+}
+
 .single-pro-content .ec-single-sales {
     margin: 25px 0 30px 0;
     display: -webkit-box;
