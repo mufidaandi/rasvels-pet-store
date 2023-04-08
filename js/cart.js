@@ -47,64 +47,71 @@ function addItemToCart(item) {
   function displayCart(){
     const tableContainer = $('.cart-table-content table tbody');
     var items = getAllCartItems();
-    if (items) {
-      for (let i = 0; i < items.length; i++) {
+    if(storedUser) {
+      if (items) {
+        for (let i = 0; i < items.length; i++) {
+          const row = $('<tr></tr>');
+          const colProduct = $('<td class="cart-pro-name"></td>');
+          const colProductLink = $('<a>');
+          colProductLink.attr('href', "product-detail.html?productId=" + items[i].id );
+  
+          // Product image and name
+          const productImg = $('<img class="cart-pro-img mr-4">');
+          productImg.attr('src', items[i].image);
+          productImg.attr('alt', items[i].name);
+          colProductLink.append(productImg);
+          colProductLink.append(items[i].name);
+  
+          colProduct.append(colProductLink); // img and name
+  
+          // Product price
+          const colProductPrice = $('<td class="cart-pro-price"></td>');
+          const priceText = $('<span></span>');
+          priceText.text("$"+ items[i].price);
+          colProductPrice.append(priceText);
+  
+          // Display quantity
+          const colProductQty = $('<td class="cart-pro-qty"></td>');
+          const productQty = $('<div class="cart-qty-plus-minus"></div>');
+          const productQtyInput = $('<input>');
+          productQtyInput.attr('type', 'number');
+          productQtyInput.attr('name', 'cartqtybutton');
+          productQtyInput.attr('min', 1);
+          productQtyInput.attr('value', items[i].quantity);
+          productQty.append(productQtyInput);
+          colProductQty.append(productQty);
+  
+          // Subtotal
+          const colProductTotal = $('<td class="cart-pro-subtotal"></td>');
+          var productSubTotal = items[i].price * items[i].quantity;
+          colProductTotal.append("$" + productSubTotal);
+  
+          subTotal += productSubTotal;
+  
+          // Delete button
+          const removeContainer = $('<td data-label="Remove" class="cart-pro-remove"> </td>');
+          const removeIcon = $('<img class="trash-icon" src="images/cart/trash.png" width="25%" height="25%">');
+          removeContainer.append(removeIcon);
+  
+  
+          row.append(colProduct);
+          row.append(colProductPrice);
+          row.append(colProductQty);
+          row.append(colProductTotal);
+          row.append(removeContainer);
+          tableContainer.append(row);
+        }
+      } else {
         const row = $('<tr></tr>');
-        const colProduct = $('<td class="cart-pro-name"></td>');
-        const colProductLink = $('<a>');
-        colProductLink.attr('href', "product-detail.html?productId=" + items[i].id );
-
-        // Product image and name
-        const productImg = $('<img class="cart-pro-img mr-4">');
-        productImg.attr('src', items[i].image);
-        productImg.attr('alt', items[i].name);
-        colProductLink.append(productImg);
-        colProductLink.append(items[i].name);
-
-        colProduct.append(colProductLink); // img and name
-
-        // Product price
-        const colProductPrice = $('<td class="cart-pro-price"></td>');
-        const priceText = $('<span></span>');
-        priceText.text("$"+ items[i].price);
-        colProductPrice.append(priceText);
-
-        // Display quantity
-        const colProductQty = $('<td class="cart-pro-qty"></td>');
-        const productQty = $('<div class="cart-qty-plus-minus"></div>');
-        const productQtyInput = $('<input>');
-        productQtyInput.attr('type', 'number');
-        productQtyInput.attr('name', 'cartqtybutton');
-        productQtyInput.attr('min', 1);
-        productQtyInput.attr('value', items[i].quantity);
-        productQty.append(productQtyInput);
-        colProductQty.append(productQty);
-
-        // Subtotal
-        const colProductTotal = $('<td class="cart-pro-subtotal"></td>');
-        var productSubTotal = items[i].price * items[i].quantity;
-        colProductTotal.append("$" + productSubTotal);
-
-        subTotal += productSubTotal;
-
-        // Delete button
-        const removeContainer = $('<td data-label="Remove" class="cart-pro-remove"> </td>');
-        const removeIcon = $('<img class="trash-icon" src="images/cart/trash.png" width="25%" height="25%">');
-        removeContainer.append(removeIcon);
-
-
-        row.append(colProduct);
-        row.append(colProductPrice);
-        row.append(colProductQty);
-        row.append(colProductTotal);
-        row.append(removeContainer);
+        const emptyCart = $('<span>You have nothing in your cart.</span>');
+        row.append(emptyCart);
         tableContainer.append(row);
       }
     } else {
       const row = $('<tr></tr>');
-      const emptyCart = $('<span>You have nothing in your cart.</span>');
-      row.append(emptyCart);
-      tableContainer.append(row);
+        const emptyCart = $('<span style="color:red">Please log in to add items to cart.</span>');
+        row.append(emptyCart);
+        tableContainer.append(row);
     }
     
     totalAmount = subTotal + 9.99;
