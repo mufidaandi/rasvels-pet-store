@@ -16,10 +16,16 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 $(document).ready(function() {
   const productList = $('#product-list');
-  var urlParameter = getUrlParameter('category').split("_");
-  var productCategory = urlParameter[0];
-  var productSubCategory = urlParameter[1];
+  var urlParameter = getUrlParameter('category');
+  var test;
+  var productCategory;
+  var productSubCategory;
   var product;
+  if(urlParameter){
+    test = urlParameter.split("_");
+    productCategory = test[0];
+    productSubCategory = test[1];
+  }
   
   for (let i = 0; i < products.length; i++) {
     if (productSubCategory) {
@@ -31,8 +37,11 @@ $(document).ready(function() {
       } else {
         $('.shop-banner h1').text('SUPPLIES');
       }
-    } else {      
+    } else if (productCategory) {
       product = products.filter(value => value.category === productCategory)[i];
+    }
+    else {
+      product = products.sort(productCategory).sort(productSubCategory)[i];
     }
     
     if (product.category == 'cat') {
@@ -73,6 +82,13 @@ $(document).ready(function() {
     productName.append(brand_name);
     productName.append(product_name);
 
+    const productQuantity = $('<span id="product-quantity"></span>');
+    const quantity = $('<span id="product-quantity-number"></span>');
+    productQuantity.text('Hurry up!! left');
+    quantity.text(product.quantity + ' In Stock');
+    productQuantity.append(quantity)
+
+
     // Create a div for the product rating
     const productRating = $('<div class="product-rating"></div>');
 
@@ -110,6 +126,7 @@ $(document).ready(function() {
 
     // Add the product name, price, and rating to the product details
     productDetails.append(productName);
+    productDetails.append(productQuantity);
     productDetails.append(productPrice);
     productDetails.append(productRating);
 

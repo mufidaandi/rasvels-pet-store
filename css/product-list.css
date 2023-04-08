@@ -131,3 +131,30 @@ hr {
 .product-name b {
   color: #8a4421;
 }
+
+#product-quantity{
+  color: #444444;
+  font-size: 16px;
+  line-height: 27px;
+  text-transform: capitalize;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  letter-spacing: 0.1px;
+  margin-bottom: 16px;
+}
+
+#product-quantity-number{
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 27px;
+  font-weight: 600;
+  /* background-color: #3474d4; */
+  background-color: #8a4421;
+  padding: 0 3px;
+  margin: 0 6px;
+}
