@@ -39,17 +39,18 @@ $(document).ready(function() {
       }
     } else if (productCategory) {
       product = products.filter(value => value.category === productCategory)[i];
-    }
-    else {
+    } else {
       product = products.sort(productCategory).sort(productSubCategory)[i];
     }
     
-    if (product.category == 'cat') {
+    if (productCategory == 'cat') {
       $('.shop-banner-img').attr('src', 'images/shop-cat.png');
-    } else if (product.category == 'dog') {
+    } else if (productCategory == 'dog') {
       $('.shop-banner-img').attr('src', 'images/shop-dog.png');
-    } else {
+    } else if (productCategory == 'bird') {
       $('.shop-banner-img').attr('src', 'images/shop-bird.png');
+    } else {
+      $('.shop-banner-img').attr('src', 'images/products-banner.png');
     }
 
     // Create a div for the product card
