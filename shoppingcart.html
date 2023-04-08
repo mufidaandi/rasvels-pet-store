@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Shopping Cart</title>
-	<link rel="stylesheet" type="text/css" href="shoppingcartstyle.css">
     <!-- <title>Welcome to rasvel's!</title> -->
     <link rel="icon" href="images/favicon.ico" />
     <link rel="stylesheet" href="css/header.css" />
@@ -11,6 +10,9 @@
     <link rel="stylesheet" href="css/shoppingcartstyle.css" />
     <script src="js/vendor/jquery-3.5.1.min.js"></script>
     <script src="js/nav.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/cart.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -98,10 +100,10 @@
             <div class="form-container">
               <label for="uname">Username:</label>
               <input id="uname" type="text" name="uname"/>
-
               <label for="pword">Password:</label>
               <input id="pword" type="password" name="pword"/>
-              <a href="#">
+              
+              <a href="./forgotPassword.html">
                 <label for="forgot-pword" class="forgot-pword">
                   Forgot Password?
                 </label>
@@ -110,11 +112,25 @@
                 <button id="login-btn" type="submit" onclick="login()">Login</button>
               </div>
               
-              <a href="#">
+              <a href="./registration.html">
                 <label for="register" class="register">
                   Create Account
                 </label>
               </a>
+            </div>
+          </div>
+          <div class="account-profile">
+            <h5>Welcome!</h5>
+            <div class="form-container">
+              <a href="./userProfile.html">
+                <label for="profile" class="profile">
+                  User Profile
+                </label>
+              </a>
+              <div class="btn-container">
+                <button id="logout-btn" type="submit" onclick="logout()">Log out</button>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -147,181 +163,16 @@
                             <th>Price</th>
                             <th style="text-align: center">Quantity</th>
                             <th>Total</th>
-                            <th></th>
+                            <th>Remove</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td data-label="Product" class="cart-pro-name">
-                              <a href="#"
-                                ><img
-                                  class="cart-pro-img mr-4"
-                                  src="images/cart/1.jpg"
-                                  alt=""
-                                />Puff Sleeves Fit and Flare Dress</a
-                              >
-                            </td>
-                            <td data-label="Price" class="cart-pro-price">
-                              <span class="amount">$56.00</span>
-                            </td>
-                            <td
-                              data-label="Quantity"
-                              class="cart-pro-qty"
-                              style="text-align: center"
-                            >
-                              <div class="cart-qty-plus-minus">
-                                <input
-                                  type="number"
-                                  name="cartqtybutton"
-                                  value="1"
-                                  min="1"
-                                />
-                              </div>
-                            </td>
-                            <td data-label="Total" class="cart-pro-subtotal">
-                              $56.00
-                            </td>
-                            <td data-label="Remove" class="cart-pro-remove">
-                              <a href="#">
-                                <img
-                                  class="trash-icon"
-                                  src="images/cart/trash.png"
-                                  width="25%"
-                                  height="25%"
-                                />
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td data-label="Product" class="cart-pro-name">
-                              <a href="#"
-                                ><img
-                                  class="cart-pro-img mr-4"
-                                  src="images/cart/2.jpg"
-                                  alt=""
-                                />Slim Fit Dark Navy Men Suits</a
-                              >
-                            </td>
-                            <td data-label="Price" class="cart-pro-price">
-                              <span class="amount">$75.00</span>
-                            </td>
-                            <td
-                              data-label="Quantity"
-                              class="cart-pro-qty"
-                              style="text-align: center"
-                            >
-                              <div class="cart-qty-plus-minus">
-                                <input
-                                  type="number"
-                                  name="cartqtybutton"
-                                  value="1"
-                                  min="1"
-                                />
-                              </div>
-                            </td>
-                            <td data-label="Total" class="cart-pro-subtotal">
-                              $75.00
-                            </td>
-                            <td data-label="Remove" class="cart-pro-remove">
-                              <a href="#">
-                                <img
-                                  class="trash-icon"
-                                  src="images/cart/trash.png"
-                                  width="25%"
-                                  height="25%"
-                                />
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td data-label="Product" class="cart-pro-name">
-                              <a href="#"
-                                ><img
-                                  class="cart-pro-img mr-4"
-                                  src="images/cart/3.jpg"
-                                  alt=""
-                                />Beautiful Shirt For Men</a
-                              >
-                            </td>
-                            <td data-label="Price" class="cart-pro-price">
-                              <span class="amount">$48.00</span>
-                            </td>
-                            <td
-                              data-label="Quantity"
-                              class="cart-pro-qty"
-                              style="text-align: center"
-                            >
-                              <div class="cart-qty-plus-minus">
-                                <input
-                                  type="number"
-                                  name="cartqtybutton"
-                                  value="1"
-                                  min="1"
-                                />
-                              </div>
-                            </td>
-                            <td data-label="Total" class="cart-pro-subtotal">
-                              $48.00
-                            </td>
-                            <td data-label="Remove" class="cart-pro-remove">
-                              <a href="#">
-                                <img
-                                  class="trash-icon"
-                                  src="images/cart/trash.png"
-                                  width="25%"
-                                  height="25%"
-                                />
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td data-label="Product" class="cart-pro-name">
-                              <a href="#"
-                                ><img
-                                  class="cart-pro-img mr-4"
-                                  src="images/cart/4.jpg"
-                                  alt=""
-                                />SPERA Women Rayon Slub Straight Kurta Set</a
-                              >
-                            </td>
-                            <td data-label="Price" class="cart-pro-price">
-                              <span class="amount">$95.00</span>
-                            </td>
-                            <td
-                              data-label="Quantity"
-                              class="cart-pro-qty"
-                              style="text-align: center"
-                            >
-                              <div class="cart-qty-plus-minus">
-                                <input
-                                  type="number"
-                                  name="cartqtybutton"
-                                  value="1"
-                                  min="1"
-                                />
-                              </div>
-                            </td>
-                            <td data-label="Total" class="cart-pro-subtotal">
-                              $95.00
-                            </td>
-                            <td data-label="Remove" class="cart-pro-remove">
-                              <a href="#">
-                                <img
-                                  class="trash-icon"
-                                  src="images/cart/trash.png"
-                                  width="25%"
-                                  height="25%"
-                                />
-                              </a>
-                            </td>
-                          </tr>
                         </tbody>
                       </table>
                     </div>
                     <div class="cart-update-bottom">
-                      <a href="./products.html" class="continue-shopping"
-                        >Continue Shopping</a
-                      >
+                      <a href="./index.html" class="continue-shopping">
+                        Continue Shopping</a>
                       <button class="btn btn-primary btn-checkout">
                         Check Out
                       </button>
@@ -392,11 +243,11 @@
                       <div class="cart-summary">
                         <div>
                           <span class="text-left">Sub-Total</span>
-                          <span class="text-right">$274.00</span>
+                          <span class="text-right sub-total">$274.00</span>
                         </div>
                         <div>
                           <span class="text-left">Delivery Charges</span>
-                          <span class="text-right">$26.00</span>
+                          <span class="text-right">$9.99</span>
                         </div>
                         <div>
                           <span class="text-left">Coupon Discount</span>
@@ -428,7 +279,7 @@
                         </div>
                         <div class="cart-summary-total">
                           <span class="text-left">Total Amount</span>
-                          <span class="text-right">$300.00</span>
+                          <span class="text-right total-amount">$300.00</span>
                         </div>
                       </div>
                     </div>
