@@ -77,6 +77,7 @@ function userLogin(username, password) {
     if (user) {
       alert("Login successful");
       localStorage.setItem("currentUser", JSON.stringify(user));
+      window.location.href = "index.html";
       return user;
     } else {
         // to check if user entered valid username or not
