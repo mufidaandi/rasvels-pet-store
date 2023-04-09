@@ -17,14 +17,14 @@ var getUrlParameter = function getUrlParameter(sParam) {
 $(document).ready(function() {
   const productList = $('#product-list');
   var urlParameter = getUrlParameter('category');
-  var test;
+  var productParameter;
   var productCategory;
   var productSubCategory;
   var product;
   if(urlParameter){
-    test = urlParameter.split("_");
-    productCategory = test[0];
-    productSubCategory = test[1];
+    productParameter = urlParameter.split("_");
+    productCategory = productParameter[0];
+    productSubCategory = productParameter[1];
   }
   
   for (let i = 0; i < products.length; i++) {
@@ -39,11 +39,10 @@ $(document).ready(function() {
       }
     } else if (productCategory) {
       product = products.filter(value => value.category === productCategory)[i];
-    }
-    else {
+    } else {
       product = products.sort(productCategory).sort(productSubCategory)[i];
     }
-    
+
     if (product.category == 'cat') {
       $('.shop-banner-img').attr('src', 'images/shop-cat.png');
     } else if (product.category == 'dog') {
@@ -57,7 +56,7 @@ $(document).ready(function() {
 
     // Create a div for the product details
     const productLinkStart = $('<a>');
-    productLinkStart.attr('href', "product-detail.html?productId="+ product.id)
+    productLinkStart.attr('href', "product-detail.html?productId=" + product.id)
 
     // Create an image element for the product image
     const productImage = $('<img>');
@@ -77,16 +76,17 @@ $(document).ready(function() {
     // Create an h2 element for the product name
     const productName = $('<p class="product-name"></p>');
     const name = product.name.split(' ')
-    const brand_name = $('<b>'+name[0]+'</b>');
-    const product_name = $('<span>'+ name.slice(1).join(" ") +'</span>'); 
+    const brand_name = $('<b>' + name[0] + '</b>');
+    const product_name = $('<span>' + name.slice(1).join(" ") + '</span>');
     productName.append(brand_name);
     productName.append(product_name);
 
+    // Create a Span for quantity of available product
     const productQuantity = $('<span id="product-quantity"></span>');
     const quantity = $('<span id="product-quantity-number"></span>');
     productQuantity.text('Hurry up!! left');
     quantity.text(product.quantity + ' In Stock');
-    productQuantity.append(quantity)
+    productQuantity.append(quantity);
 
 
     // Create a div for the product rating
@@ -136,10 +136,59 @@ $(document).ready(function() {
 
     productLinkStart.append(productCard);
 
-    // Add the product card to the product list
-    productList.append(productLinkStart);
+    if(productCategory){
+      productList.append(productLinkStart);
+    }
+    else{
+      // Add the product card to the product list
+      const mainCategorySection = $(`section.${product.category}`);
+      if (mainCategorySection.length === 0) {
+        // Create a new section for this main category
+        const newMainCategorySection = $('<section></section>');
+        newMainCategorySection.addClass(`${product.category}`);
+
+        // Create a heading for the section
+        const sectionHeading = $('<h2></h2>');
+
+        // Create an image for the heading
+        const headingImage = $('<img>');
+        headingImage.attr('src', 'images/'+ product.category+'.png');
+        headingImage.attr('alt', `${product.category} image`);
+        headingImage.css('width', '50px');
+        headingImage.css('height', '50px');
+        sectionHeading.append(headingImage);
+
+        sectionHeading.append(`${product.category}`);
+        newMainCategorySection.append(sectionHeading);
+
+        productList.append(newMainCategorySection);
+      }
+
+      const subCategorySection = $(`section.${product.category}_${product.subcategory}`);
+      if (subCategorySection.length === 0) {
+        // Create a new section for this subcategory
+        const newSubCategorySection = $('<section></section>');
+        newSubCategorySection.addClass(`${product.category}_${product.subcategory}`);
+
+        // Create a heading for the section
+        const sectionHeading = $('<h3></h3>');
+
+        // Create an image for the heading
+        const headingImage = $('<img>');
+        headingImage.attr('src', 'images/'+ product.category + product.subcategory +'.png');
+        headingImage.attr('alt', `${product.subcategory} image`);
+        headingImage.css('width', '50px');
+        headingImage.css('height', '50px');
+        sectionHeading.append(headingImage);
+
+        sectionHeading.append(`${product.subcategory}`);
+        newSubCategorySection.append(sectionHeading);
+
+        productList.find(`section.${product.category}`).append(newSubCategorySection);
+      }
+
+      productList.find(`section.${product.category}_${product.subcategory}`).append(productLinkStart);
+    }
   }
-
-
 
 });
