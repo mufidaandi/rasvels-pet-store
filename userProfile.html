@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="css/userProfile.css">
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <script src="js/nav.js"></script>
-    <script src="js/products.js"></script>
-    <script src="js/users.js"></script>
+    
+    <link rel="stylesheet" href="css/userProfile.css" />
+
 </head>
 <body>
     <!-- header section that contains navbar and company logo -->
@@ -140,35 +139,35 @@
         </button>
       </div>
     </header>
+    <main id="content-wrapper" class="content-wrapper">
+      <!-- userProfile code to display user profile picture and user data -->
+      <div class="userProfile">
+          <!-- to display user profile picture and user data-->
+          <div class="userCard">
+              <img src="./images/userProfile.jpg" alt="">
+              <h2 id="fullName">Shawn</h2>
+              <p id="email">shawnstel@gmail.com</p>
+          </div>
+      
+          <!-- to display user data -->
+          <div class="userInfo">
+              <h1 style="text-align: center;">User Profile</h1>
+      
+              <!-- form to display user info -->
+              <div class="form-container_u">
+                  <form id="userForm" action="">
 
-    <!-- userProfile code to display user profile picture and user data -->
-    <div class="userProfile">
-        <!-- to display user profile picture and user data-->
-        <div class="userCard">
-            <img src="./images/userProfile.jpg" alt="">
-            <h2>Shawn</h2>
-            <p>shawnstel@gmail.com</p>
-        </div>
-    
-        <!-- to display user data -->
-        <div class="userInfo">
-            <h1 style="text-align: center;">User Profile</h1>
-    
-            <!-- form to display user info -->
-            <div class="form-container">
-                <form action="">
-
-                    <div class="row">
-                        <div class="column">
-                            <label for="">Account ID</label>
-                            <input name="id" type="text" value="8633" disabled>
-                        </div>
-                    </div>
+                      <div class="row">
+                          <div class="column">
+                              <label for="">Account ID</label>
+                              <input id="id" name="id" type="text" value="8633" disabled>
+                          </div>
+                      </div>
 
                     <div class="row">
                         <div class="column">
                             <label for="">Username</label>
-                            <input id="userName" name="userName" type="text" value="shawnstel" disabled>
+                            <input name="userName" type="text" value="shawnstel" disabled>
                         </div>
                     </div>
 
@@ -176,45 +175,45 @@
                     <div class="row">
                         <div class="column">       
                             <label for="">First Name <span class="error firstNameErrorMessage">*</span></label>
-                            <input id="firstName" name="firstName" type="text" value="Shawn">
+                            <input name="firstName" type="text" value="Shawn">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="column">
                             <label for="">Last Name <span class="error lastNameErrorMessage">*</span></label>
-                            <input id="lastName" name="lastName" type="text" value="Stel">
+                            <input name="lastName" type="text" value="Stel">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="column">
                             <label for="">Contact <span class="error contactErrorMessage">*</span></label>
-                            <input id="contact" name="contact" type="number" name="" id="" value="4733796864">
+                            <input name="contact" type="number" name="" id="" value="4733796864">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="column">         
+                            <label for="">Address <span class="error addressErrorMessage">*</span></label>
+                            <input name="address" type="text" value="25 Baymills Blvd, Scarborough">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="column">
+                            <label for="">City <span class="error cityErrorMessage">*</span></label>
+                            <input name="city" type="text" value="Toronto">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="column">
+                            <label for="">State <span class="error stateErrorMessage">*</span></label>
+                            <input name="state" type="text" value="Ontario">
                         </div>
                     </div>
     
-                    <div class="row">
-                      <div class="column">
-                        <label for="">Current Password <span class="error currentPasswordErrorMessage">*</span></label>
-                        <input id="currentPassword" type="password" name="currentPassword">
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="column">
-                        <label for="">New Password <span class="error newPasswordErrorMessage">*</span></label>
-                        <input id="newPassword" type="password" name="newPassword">
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="column">
-                        <label for="">Confirm New Password <span class="error confirmNewPasswordErrorMessage">*</span></label>
-                        <input id="confirmNewPassword" type="password" name="confirmNewPassword">
-                      </div>
-                    </div>
-
                     <div class="row">
                         <div class="right">
                             <div class="submit-btn-container">
@@ -236,6 +235,11 @@
         </div>
         </footer>
     
-    <script src="./js/userProfile.js"></script>
+     <!-- Vendor JS -->
+     <script src="js/vendor/jquery-3.5.1.min.js"></script>
+     <!--main js--> 
+    <script src="js/nav.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/userProfile.js"></script>
 </body>
 </html>

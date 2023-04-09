@@ -64,14 +64,40 @@ main {
     margin-bottom: 0px;
 }
 
-.form-container {
+.form-container_u {
     margin: 0px auto 20px;
     background-color: #F6F3F0;
     border-radius: 10px;
     display: block;
     padding: 65px;
     padding-left: 25px;
+
+    width: 100%;
+    margin-bottom: 5px;
 }
+.form-container_u input, select {
+    width: 100%;
+    margin: 5px 0 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #8a4421;
+    outline: none;
+  }
+  
+  .form-container_u label {
+    font-size: 12px;
+  }
+
+  .form-container_u button {
+    margin: 10px 0;
+    width: 95px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #8a4421;
+    cursor: pointer;
+  }
 
 .userCard p{
     margin-top: 10px;
@@ -152,7 +178,7 @@ main{
     align-items: center;
 }
 
-.form-container{
+.form-container_u{
     display: flex;
     flex-direction: column;
     justify-content: center;
