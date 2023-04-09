@@ -70,7 +70,7 @@ function validateForm() {
     }
 
     // to check if user entered valid password or not
-    if (password.value === '' || password.value.length<6) {
+    if (password.value === '' || password.value.length<8) {
         passwordErrorMessage.innerText = " (Password cannot be empty & must be minimum 6 characters!)";
         isValid = false;
     } else{

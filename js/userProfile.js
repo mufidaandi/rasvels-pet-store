@@ -128,6 +128,15 @@ function validateEmail(email) {
     return re.test(email);
 }
 
+//checks if the password has number or not and return true or false
+function hasNumber(input) {
+    // Regular expression to match any digit
+    var regex = /\d+/;
+    
+    // Test input against the regular expression
+    return regex.test(input);
+  }
+
 //function that checks if any of the mandatory form fields are left empty.
 //also checks if password and confirmPassword entered by the user are same or not.
 function validateForm() {
