@@ -17,6 +17,7 @@
   overflow: hidden;
   cursor: pointer;
   min-height: 400px;
+  margin: 1rem;
 }
 
 /* Product image */
