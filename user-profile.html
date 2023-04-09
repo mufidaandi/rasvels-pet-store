@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/user-profile.css" />
+    <link rel="stylesheet" href="css/vendor/ecicons.min.css" />
+  </head>
+  <body>
+    <!-- header section that contains navbar and company logo -->
+    <header>
+      <div class="logo">
+        <a href="./index.html"><img src="images/logo.png" /></a>
+      </div>
+      <nav class="nav-container">
+        <a href="./product-list.html" id="products" class="nav-items products">Products</a>
+        <div id="products-modal" class="products-modal">
+          <div class="pet-categories">
+            <a href="./product-list.html?category=cat" id="cat" class="categ-name active-sub">
+              Cat
+            </a>
+            <a href="./product-list.html?category=dog" id="dog" class="categ-name">
+              Dog
+            </a>
+            <a href="./product-list.html?category=bird" id="bird" class="categ-name">
+              Bird
+            </a>
+          </div>
+          <div class="pet-subcategories">
+            <div class="sub-container">
+              <a href="./product-list.html?category=cat_food" class="sub"  id="sub-food">
+                <div class="sub-text">
+                  <span>Food</span>
+                  <div class="sub-divider"></div>
+                  <span class="sub-sub-text">Dry Food</span><br>
+                  <span class="sub-sub-text">Wet Food</span><br>
+                  <span class="sub-sub-text">...and more!</span>
+                </div>
+                <img id="food" src="images/catfood.png" alt="food">
+              </a>
+              <a href="./product-list.html?category=cat_treat"  class="sub" id="sub-treat">
+                <div class="sub-text">
+                  <span>Treats</span>
+                  <div class="sub-divider"></div>
+                  <span class="sub-sub-text">Crunchy Treats</span><br>
+                  <span class="sub-sub-text">Soft & Chewy Treats</span><br>
+                  <span class="sub-sub-text">...and more!</span>
+                </div>
+                <img id="treat" src="images/cattreat.png" alt="treat">
+              </a>
+              <a href="./product-list.html?category=cat_supply" class="sub" id="sub-supply">
+                <div class="sub-text">
+                  <span>Supplies</span>
+                  <div class="sub-divider"></div>
+                  <span class="sub-sub-text">Toys</span><br>
+                  <span class="sub-sub-text">Accessories</span><br>
+                  <span class="sub-sub-text">...and more!</span>
+                </div>
+                <img id="supplies" src="images/catsupplies.png" alt="supplies">
+              </a>
+            </div>
+          </div>
+          <div class="category-image">
+            <img id="category-image" src="images/catto.png" alt="pet-image">
+          </div>
+        </div>
+        <a class="nav-items" href="./about.html">About Us</a>
+        <a class="nav-items" href="./contact.html">Contact Us</a>
+      </nav>
+      <div id="search-wrapper" class="search-wrapper">
+        <form class="search-bar">
+          <input type="text" 
+            onfocus="this.placeholder = 'Looking for something?'" 
+            onblur="this.placeholder = ''" 
+            id="search-input" 
+            class="search-input" 
+            placeholder="Looking for something?" />
+          <span id="search" class="search-icon"><img src="assets/search copy.png" /></span for="search">
+        </form>
+      </div>
+      <div class="account-wrapper">
+        <div id="myaccount-wrapper" class="myaccount-wrapper">
+          <button id="myaccount" class="myaccount">
+            <a href="#"><img id="user-icon" src="assets/user copy.png" /></a>
+          </button>
+        </div>
+        <div id="myaccount-modal" class="myaccount-modal">
+          <div class="account-signin">
+            <h5>Sign In</h5>
+            <div class="form-container">
+              <label for="uname">Username/Email:</label>
+              <input id="uname" type="text" name="uname"/>
+              <label for="pword">Password:</label>
+              <input id="pword" type="password" name="pword"/>
+              
+              <a href="./forgotPassword.html">
+                <label for="forgot-pword" class="forgot-pword">
+                  Forgot Password?
+                </label>
+              </a>
+              <div class="btn-container">
+                <button id="login-btn" type="submit" onclick="login()">Login</button>
+              </div>
+              
+              <a href="./registration.html">
+                <label for="register" class="register">
+                  Create Account
+                </label>
+              </a>
+            </div>
+          </div>
+          <div class="account-profile">
+            <h5>Welcome!</h5>
+            <div class="form-container">
+              <a href="./user-profile.html">
+                <label for="profile" class="profile">
+                  User Profile
+                </label>
+              </a>
+              <div class="btn-container">
+                <button id="logout-btn" type="submit" onclick="logout()">Log out</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="cart-wrapper" class="cart-wrapper">
+        <button class="cart">
+          <a href="./shoppingcart.html"><img id="cart-icon" src="assets/cart 2 copy.png" /></a>
+        </button>
+      </div>
+    </header>
+
+    <main id="content-wrapper" class="content-wrapper">
+      <div class="container">
+        <h2>Profile</h2>
+        <div class="personal-details card">
+          <div class="profile-data">
+            <h3><i class="ecicon eci-user-o"></i>&nbsp;&nbsp;Personal Details</h3>
+            <span>Update your name and telephone number at any time.</span>
+            <div class="divider-dark"></div>
+          </div>
+
+          <div class="data-card">
+            <div class="row">
+              <div class="col-title">Name</div>
+              <div class="col-data">Mufida Andi</div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+              <div class="col-title">Phone</div>
+              <div class="col-data"></div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+              <div class="col-title">Address</div>
+              <div class="col-data">Lorem Ipsum, North York</div>
+            </div>
+            <div class="row">
+                <div class="col-right">
+                    <button class="data-edit">Edit</button>
+                </div>
+              </div>
+          </div>
+
+          <div class="editable-data-card">
+            <div class="form-wrapper">
+                <form action="">
+                    <div class="form-grid">
+                        <div class="edit-info">
+                            <label><span class="required-field"></span>First Name</label>
+                            <input type="text" id="firstName" name="firstName" class="edit-info-input" data-testid="firstName" autocapitalize="words" placeholder="First Name*" required="">
+                            <span class="validationMessage"></span>
+                        </div>
+                        <div class="edit-info">
+                            <label><span class="required-field"></span>Last Name</label>
+                            <input type="text" id="lastName" name="lastName" class="edit-info-input" data-testid="lastName" autocapitalize="words" placeholder="Last Name*" required="">
+                            <span class="validationMessage"></span>
+                        </div>
+                        <div class="edit-info">
+                            <label><span class="required-field"></span>Phone</label>
+                            <input type="text" id="phoneNumber" name="phoneNumber" class="edit-info-input" data-testid="phoneNumber" autocapitalize="words" placeholder="Phone*" required="">
+                            <span class="validationMessage"></span>
+                        </div>
+                        <div class="edit-info address">
+                            <label><span class="required-field"></span>Address</label>
+                            <input type="text" id="address" name="address" class="edit-info-input" data-testid="address" autocapitalize="words" placeholder="Address*" required="">
+                            <span class="validationMessage"></span>
+                        </div>
+                        <div class="edit-details-buttons">
+                            <button type="button" id="cancel-info" class="cancel-btn">Cancel</button>
+                            <button type="button" id="save-info" class="save-btn">Save</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+          </div>
+
+        </div>
+        <br>
+        <div class="password-details card">
+            <div class="profile-data">
+              <h3><i class="ecicon eci-unlock-alt"></i>&nbsp;&nbsp;Password</h3>
+              <span>Change your account password.</span>
+              <div class="divider-dark"></div>
+            </div>
+  
+            <div class="data-card">
+              <div class="row">
+                <div class="col-title">Account Password</div>
+                <div class="col-data">******</div>
+              </div>
+              <div class="row">
+                  <div class="col-right">
+                      <button class="password-edit">Edit</button>
+                  </div>
+                </div>
+            </div>
+  
+            <div class="editable-data-card">
+                <div>
+                    <div class="main-text">Edit your Account Password</div>
+                    <div class="sub-text">After making this change, use your new password to sign into your account.</div>
+                </div>
+              <div class="form-wrapper">
+                  <form action="">
+                      <div class="form-grid">
+                          <div class="edit-info">
+                              <label><span class="required-field"></span>Current Password</label>
+                              <input type="text" id="currentPassword" name="currentPassword" class="edit-info-input" data-testid="currentPassword" autocapitalize="words" placeholder="Current Password*" required="">
+                              <span class="validationMessage"></span>
+                          </div>
+                          <div class="edit-info">
+                              <label><span class="required-field"></span>New Password</label>
+                              <input type="text" id="newPassword" name="newPassword" class="edit-info-input" data-testid="newPassword" autocapitalize="words" placeholder="New Password*" required="">
+                              <span class="validationMessage"></span>
+                          </div>
+                          <div class="edit-info">
+                              <label><span class="required-field"></span>Confirm Password</label>
+                              <input type="text" id="confirmPassword" name="confirmPassword" class="edit-info-input" data-testid="confirmPassword" autocapitalize="words" placeholder="Confirm Password*" required="">
+                              <span class="validationMessage"></span>
+                          </div>
+  
+                          <div class="edit-details-buttons">
+                              <button type="button" id="cancel-pword" class="cancel-btn">Cancel</button>
+                              <button type="button" id="save-pword" class="save-btn">Save</button>
+  
+                          </div>
+                      </div>
+                  </form>
+              </div>
+            </div>
+  
+          </div>
+      </div>
+      <br>
+    </main>
+
+    <!-- footer contains page info and social media links -->
+    <footer class="footer-wrapper">
+      <span
+        >&copy; 2023, RASVEL's | Lambton College in Toronto - Winter 2023.</span
+      >
+      <div class="social-media">
+        <a href="https://www.facebook.com/rasvels.pet.store" target="”_blank”"
+          ><img src="assets/icons8-facebook-30.png"
+        /></a>
+        <a href="https://www.instagram.com/rasvel_petstore/" target="”_blank”"
+          ><img src="assets/icons8-instagram-30.png"
+        /></a>
+      </div>
+    </footer>
+
+    <script src="js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="js/user-profile.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/users.js"></script>
+  </body>
+</html>
