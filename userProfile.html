@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="icon" href="images/favicon.ico" />
-    <link rel="stylesheet" href="css/userProfile.css">
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <script src="js/nav.js"></script>
-    <script src="js/products.js"></script>
-    <script src="js/users.js"></script>
+    
+    <link rel="stylesheet" href="css/userProfile.css" />
+
 </head>
 <body>
 
@@ -141,93 +140,104 @@
         </button>
       </div>
     </header>
+    <main id="content-wrapper" class="content-wrapper">
+      <!-- userProfile code to display user profile picture and user data -->
+      <div class="userProfile">
+          <!-- to display user profile picture and user data-->
+          <div class="userCard">
+              <img src="./images/userProfile.jpg" alt="">
+              <h2 id="fullName">Shawn</h2>
+              <p id="email">shawnstel@gmail.com</p>
+          </div>
+      
+          <!-- to display user data -->
+          <div class="userInfo">
+              <h1 style="text-align: center;">User Profile</h1>
+      
+              <!-- form to display user info -->
+              <div class="form-container_u">
+                  <form id="userForm" action="">
 
-    <!-- userProfile code to display user profile picture and user data -->
-    <div class="userProfile">
-        <!-- to display user profile picture and user data-->
-        <div class="userCard">
-            <img src="./images/userProfile.jpg" alt="">
-            <h2>Shawn</h2>
-            <p>shawnstel@gmail.com</p>
-        </div>
-    
-        <!-- to display user data -->
-        <div class="userInfo">
-            <h1 style="text-align: center;">User Profile</h1>
-    
-            <!-- form to display user info -->
-            <div class="form-container">
-                <form action="">
+                      <div class="row">
+                          <div class="column">
+                              <label for="">Account ID</label>
+                              <input id="id" name="id" type="text" value="8633" disabled>
+                          </div>
+                      </div>
 
-                    <div class="row">
-                        <div class="column">
-                            <label for="">Account ID</label>
-                            <input name="id" type="text" value="8633" disabled>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="column">
-                            <label for="">Username</label>
-                            <input name="userName" type="text" value="shawnstel" disabled>
-                        </div>
-                    </div>
+                      <div class="row">
+                          <div class="column">
+                              <label for="">Username</label>
+                              <input id="userName" name="userName" type="text" value="shawnstel" disabled>
+                          </div>
+                      </div>
 
 
-                    <div class="row">
-                        <div class="column">       
-                            <label for="">First Name <span class="error firstNameErrorMessage">*</span></label>
-                            <input name="firstName" type="text" value="Shawn">
-                        </div>
-                    </div>
+                      <div class="row">
+                          <div class="column">       
+                              <label for="">First Name <span class="error firstNameErrorMessage">*</span></label>
+                              <input id="firstName" name="firstName" type="text" value="Shawn">
+                          </div>
+                      </div>
 
-                    <div class="row">
-                        <div class="column">
-                            <label for="">Last Name <span class="error lastNameErrorMessage">*</span></label>
-                            <input name="lastName" type="text" value="Stel">
-                        </div>
-                    </div>
+                      <div class="row">
+                          <div class="column">
+                              <label for="">Last Name <span class="error lastNameErrorMessage">*</span></label>
+                              <input id="lastName" name="lastName" type="text" value="Stel">
+                          </div>
+                      </div>
 
-                    <div class="row">
-                        <div class="column">
-                            <label for="">Contact <span class="error contactErrorMessage">*</span></label>
-                            <input name="contact" type="number" name="" id="" value="4733796864">
-                        </div>
-                    </div>
+                      <div class="row">
+                          <div class="column">
+                              <label for="">Contact <span class="error contactErrorMessage">*</span></label>
+                              <input id="contact" name="contact" type="text" name="" id="" value="4733796864">
+                          </div>
+                      </div>
 
-                    <div class="row">
+                      <div class="row">
+                          <div class="column">         
+                              <label for="">Address <span class="error addressErrorMessage">*</span></label>
+                              <input id="address" name="address" type="text" value="25 Baymills Blvd, Scarborough">
+                          </div>
+                      </div>
+                      <div class="row">
                         <div class="column">         
-                            <label for="">Address <span class="error addressErrorMessage">*</span></label>
-                            <input name="address" type="text" value="25 Baymills Blvd, Scarborough">
+                            <label for="">Country <span class="error countryErrorMessage">*</span></label>
+                            <select id="country" name="country"></select>
                         </div>
                     </div>
-
                     <div class="row">
-                        <div class="column">
-                            <label for="">City <span class="error cityErrorMessage">*</span></label>
-                            <input name="city" type="text" value="Toronto">
-                        </div>
-                    </div>
+                      <div class="column">
+                          <label for="">State <span class="error regionErrorMessage">*</span></label>
+                          <select id="region" name="region"></select>
+                      </div>
+                   </div>
+                      <div class="row">
+                          <div class="column">
+                              <label for="">City <span class="error cityErrorMessage">*</span></label>
+                              <select id="city" name="city"></select>
+                          </div>
+                      </div>
 
-                    <div class="row">
-                        <div class="column">
-                            <label for="">State <span class="error stateErrorMessage">*</span></label>
-                            <input name="state" type="text" value="Ontario">
+                     
+                      <div class="row">
+                        <div class="column">         
+                            <label for="">Post Code <span class="error postCodeErrorMessage">*</span></label>
+                            <input id="postCode" name="postCode" type="text" >
                         </div>
                     </div>
-    
-                    <div class="row">
-                        <div class="right">
-                            <div class="submit-btn-container">
-                                <button id="submit-btn">Update Account</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
+                      <div class="row">
+                          <div class="right">
+                              <div class="submit-btn-container">
+                                  <button id="submit-btn">Update Account</button>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </main>
     <!-- footer contains page info and social media links -->
     <footer class="footer-wrapper">
         <span>&copy; 2023, RASVEL's | Lambton College in Toronto - Winter 2023.</span>
@@ -237,6 +247,11 @@
         </div>
         </footer>
     
-    <script src="./js/userProfile.js"></script>
+     <!-- Vendor JS -->
+     <script src="js/vendor/jquery-3.5.1.min.js"></script>
+     <!--main js--> 
+    <script src="js/nav.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/userProfile.js"></script>
 </body>
 </html>
