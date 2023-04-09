@@ -126,7 +126,7 @@ body {
   padding: 0;
 }
 
-.edit-info input {
+.edit-info input, select {
   width: 100%;
   margin: 5px 0 10px;
   padding: 5px;

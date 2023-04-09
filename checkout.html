@@ -8,12 +8,7 @@
     <link rel="stylesheet" href="css/footer.css" /> 
     <link rel="stylesheet" href="css/main.css" />
 
-    <script src="js/vendor/jquery-3.5.1.min.js"></script>
-    <script src="js/nav.js"></script>
-    <script src="js/products.js"></script>
-    <script src="js/users.js"></script>
-    <script src="js/cart.js"></script>
-    <script src="js/checkout.js"></script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -160,60 +155,48 @@
                                             <form id="myform" action="thankyou.html" method="post">
                                                 <span class="bill-wrap bill-half">
                                                     <label>First Name <span style="color: red;">*</span></label>
-                                                    <input type="text" name="firstname"
+                                                    <input type="text" id="firstName" name="firstName"
                                                         placeholder="Enter your first name" required />
                                                 </span>
                                                 <span class="bill-wrap bill-half">
                                                     <label>Last Name <span style="color: red;">*</span></label>
-                                                    <input type="text" name="lastname"
+                                                    <input type="text" id="lastName" name="lastName"
                                                         placeholder="Enter your last name" required />
                                                 </span>
                                                 <span class="bill-wrap">
                                                     <label>Address <span style="color: red;">*</span></label>
-                                                    <input type="text" name="address"
+                                                    <input type="text" id="address" name="address"
                                                         placeholder="Address Line 1" required/>
                                                 </span>
                                                 <span class="bill-wrap bill-half">
-                                                    <label>City</label>
-                                                    <span class="bl-select-inner">
-                                                        <select name="ec_select_city" id="select-city"
-                                                            class="bill-select">
-                                                            <option selected disabled>North York</option>
-                                                            <option value="1">Manhattan</option>
-                                                            <option value="2">Alexandria</option>
-                                                            <option value="3">Los Angeles</option>
-                                                            <option value="4">Glendale</option>
-                                                        </select>
-                                                    </span>
+                                                  <label>Country</label>
+                                                  <span class="bl-select-inner">
+                                                     <select id="country" name="country" class="bill-select"></select>
+                                                      
+                                                  </span>
                                                 </span>
+                                                
                                                 <span class="bill-wrap bill-half">
                                                     <label>Post Code</label>
-                                                    <input type="text" name="postalcode" placeholder="Post Code" />
+                                                    <input type="text" id="postCode" name="postCode" placeholder="Post Code" />
                                                 </span>
-                                                <span class="bill-wrap bill-half">
-                                                    <label>Country</label>
-                                                    <span class="bl-select-inner">
-                                                        <select name="ec_select_country" id="select-country"
-                                                            class="bill-select">
-                                                            <option selected disabled>Canada</option>
-                                                            <option value="1">Australia</option>
-                                                            <option value="2">United States</option>
-
-                                                        </select>
-                                                    </span>
-                                                </span>
+                                                
                                                 <span class="bill-wrap bill-half">
                                                     <label>Region State</label>
                                                     <span class="bl-select-inner">
-                                                        <select name="ec_select_state" id="select-state"
-                                                            class="bill-select">
-                                                            <option selected disabled>Ontario</option>
-                                                            <option value="1">New York</option>
-                                                            <option value="2">New South Wales</option>
-                                                            <option value="3">California</option>
+                                                        <select name="region" id="region" class="bill-select">
+                                                    
                                                         </select>
                                                     </span>
                                                 </span>
+                                                <span class="bill-wrap bill-half">
+                                                  <label>City</label>
+                                                  <span class="bl-select-inner">
+                                                      <select name="city" id="city"  class="bill-select">
+                                                         
+                                                      </select>
+                                                  </span>
+                                              </span>
                                                 <span class="bill-wrap">
 
                                                     <span class="check-order-btn">
@@ -328,5 +311,11 @@
         <a href="https://www.instagram.com/rasvel_petstore/" target=”_blank”><img src="assets/icons8-instagram-30.png" /></a>
       </div>
     </footer>
+    <script src="js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
   </body>
 </html>

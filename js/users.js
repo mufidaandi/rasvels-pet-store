@@ -107,7 +107,7 @@ function userLogout(){
 function checkLogin(){
     storedUser = userGetCurrentLoginUser();
     if(storedUser){
-        $(".account-profile h5").text('Welcome, '+ storedUser.name + '!');
+        $(".account-profile h5").text('Welcome, '+ storedUser.firstname + '!');
         $(".account-profile").show();
         $(".account-signin").hide();
     } else {
