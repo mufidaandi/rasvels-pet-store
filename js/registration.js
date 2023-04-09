@@ -35,6 +35,7 @@ function validateForm() {
         isValid = false;
     } else{
         firstNameErrorMessage.innerText = "*";
+        isValid = true;
     }
 
     // to check if user entered last name is valid or not
@@ -43,6 +44,7 @@ function validateForm() {
         isValid = false;
     } else{
         lastNameErrorMessage.innerText = "*";
+        isValid = true;
     }
 
     // to check if user entered email is valid or not
@@ -51,6 +53,7 @@ function validateForm() {
         isValid = false;
     } else{
         emailErrorMessage.innerText = "*";
+        isValid = true;
     }
 
     // to check if both email and confirmEmail are same or not
@@ -59,6 +62,7 @@ function validateForm() {
         isValid = false;
     } else{
         confirmEmailErrorMessage.innerText = "*";
+        isValid = true;
     }
 
     // to check if user entered valid username or not
@@ -67,6 +71,7 @@ function validateForm() {
         isValid = false;
     } else{
         usernameErrorMessage.innerText = "*";
+        isValid = true;
     }
 
     // to check if user entered valid password or not
@@ -75,6 +80,7 @@ function validateForm() {
         isValid = false;
     } else{
         passwordErrorMessage.innerText = "*";
+        isValid = true;
     }
 
     // to check if both password and confirmPassword are same or not
@@ -83,15 +89,18 @@ function validateForm() {
         isValid = false;
     } else{
         confirmPasswordErrorMessage.innerText = "*";
+        isValid = true;
     }
 
-    if (isValid) {
+    if (isValid) {  
+
         createUser();
     }
 }
 
 function createUser() {
-    var name = $("#firstName").val() + " " + $("#lastName").val();
+    var firstname = $("#firstName").val();
+    var lastname = $("#lastName").val();
     var username = $('#username').val();
     var password = $('#password').val();
     var email = $("#email").val();
@@ -102,7 +111,8 @@ function createUser() {
 
     var user = {
         id: newUserId,
-        name: name,
+        firstname: firstname,
+        lastname: lastname,
         username: username,
         password: password,
         role: "user",
@@ -112,7 +122,7 @@ function createUser() {
     users.push(user);
 
     localStorage.setItem('users', JSON.stringify(users));
-    alert("Account created! Please log in.")
+    alert("Account created! Please log in.");
     window.location.href = "index.html";
 }
 
