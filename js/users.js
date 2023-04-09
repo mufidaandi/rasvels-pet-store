@@ -73,7 +73,7 @@ function userGetCurrentLoginUser(){
 
 function userLogin(username, password) {
     var users = JSON.parse(localStorage.getItem('users'));
-    const user = users.find(user => user.username === username && user.password === password);
+    const user = users.find(user => (user.email === username || user.username === username) && user.password === password);
     if (user) {
       alert("Login successful");
       localStorage.setItem("currentUser", JSON.stringify(user));

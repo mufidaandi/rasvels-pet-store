@@ -1,7 +1,7 @@
  const products = [
   {
     id: "1",
-    name: "Performatrin Ultra Wholesome Grains Lamb & Brown Rice Recipe Adult Dog Food",
+    name: "Performatrin Ultra Wholesome Grains Lamb & Brown Rice Recipe Adult Cat Food",
     price: "84.99",
     quantity: "138",
     category: "cat",

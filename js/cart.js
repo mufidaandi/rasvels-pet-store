@@ -65,7 +65,8 @@ function addItemToCart(item) {
     var items = getAllCartItems();
     var subTotal = 0;
     if(storedUser) {
-      if (items.length != 0) {
+      console.log(items);
+      if (items != null && items.length != 0) {
         
         for (let i = 0; i < items.length; i++) {
           const row = $('<tr></tr>');
@@ -135,9 +136,9 @@ function addItemToCart(item) {
       }
     } else {
       const row = $('<tr></tr>');
-        const emptyCart = $('<p class="empty-cart">Please log in to add items to cart.</p>');
-        row.append(emptyCart);
-        tableContainer.append(row);
+      const emptyCart = $('<p class="empty-cart">Please log in to add items to cart.</p>');
+      row.append(emptyCart);
+      tableContainer.append(row);
     }
     
     totalAmount = subTotal + 9.99;
@@ -158,7 +159,7 @@ function addItemToCart(item) {
       //updateTotal();
       
       // Re-display the updated cart
-      $('.cart-table-content table tbody').text('You have nothing in your cart.'); 
+      $('.cart-table-content table tbody').text(""); 
       displayCart();
     });
   }
