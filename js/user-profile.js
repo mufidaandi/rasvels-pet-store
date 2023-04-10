@@ -19,7 +19,7 @@ function hideEditablePassword() {
 }
 
 function generateSelects(){
-        // Get the existing select elements
+    // Get the existing select elements
     const countrySelect = document.getElementById('country');
     const regionSelect = document.getElementById('region');
     const citySelect = document.getElementById('city');

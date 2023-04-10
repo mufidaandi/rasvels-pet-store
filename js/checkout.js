@@ -114,7 +114,7 @@ jQuery(document).ready(function () {
     }
     var totalAmount = Number(subTotal) + Number(deliverCharges);
     jQuery("#subTotal").text('$' + subTotal);
-    jQuery("#totalAmount").text('$' + totalAmount);
+    jQuery("#totalAmount").text('$' + totalAmount.toFixed(2));
 
     // Check if users click on Place Order, system will remove all items in the cart and redirect to thankyou page
     const myform = document.getElementById("myform");
