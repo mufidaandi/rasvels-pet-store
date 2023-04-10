@@ -16,11 +16,6 @@ var getUrlParameter = function getUrlParameter(sParam) {
   return false;
 };
 
-function showSubCategories(categ) {
-  // $('.cat-dropdown').show();
-  $("." + categ + "-dropdown").addClass("show");
-}
-
 $(document).ready(function () {
   const productList = $("#product-list");
   var urlParameter = getUrlParameter("category");
@@ -29,7 +24,6 @@ $(document).ready(function () {
   var productSubCategory;
   var product;
 
-  // $('.subcat-dropdown').hide();
   $(".categ-title i").on("click", function () {
     const categ = $(this).closest(".categ-title").find("a").text();
     var categElement = "." + categ.toLowerCase() + "-dropdown";
@@ -42,6 +36,7 @@ $(document).ready(function () {
       $(this).removeClass("tiltIcon");
     }
   });
+
   if (urlParameter) {
     productParameter = urlParameter.split("_");
     productCategory = productParameter[0];
@@ -64,14 +59,16 @@ $(document).ready(function () {
       }
       categElement = "." + productCategory.toLowerCase() + "-dropdown";
       var subCategElement = "#" + productCategory.toLowerCase() + productSubCategory.toLowerCase();
+      var iconElement = "#" + productCategory.toLowerCase() + "-down";
       $(subCategElement).addClass("active");
       $(categElement).addClass("show");      
-      $(this).addClass("tiltIcon");
+      $(iconElement).addClass("tiltIcon");
     } else if (productCategory) {
       product = products.filter((value) => value.category === productCategory)[i];
       categElement = "." + productCategory.toLowerCase() + "-dropdown";
-      $(categElement).addClass("show");      
-      $(this).addClass("tiltIcon");
+      var iconElement = "#" + productCategory.toLowerCase() + "-down";
+      $(categElement).addClass("show");  
+      $(iconElement).addClass("tiltIcon");
     } else {
       product = products.sort(productCategory).sort(productSubCategory)[i];
     }

@@ -122,7 +122,7 @@ function login(){
     var pwd = $('#pword').val();
     var user = userLogin(usr, pwd);
     if(user != null){
-        $(".account-profile h5").text('Welcome, '+ user.firstname);
+        $(".account-profile h5").text('Welcome, '+ user.firstname + '!');
         $(".account-profile").show();
         $(".account-signin").hide();
         $('#uname').val('');
