@@ -113,7 +113,7 @@ jQuery(document).ready(function () {
         subTotal += userCart[i].price * userCart[i].quantity;
     }
     var totalAmount = Number(subTotal) + Number(deliverCharges);
-    jQuery("#subTotal").text('$' + subTotal);
+    jQuery("#subTotal").text('$' + subTotal.toFixed(2));
     jQuery("#totalAmount").text('$' + totalAmount.toFixed(2));
 
     // Check if users click on Place Order, system will remove all items in the cart and redirect to thankyou page
